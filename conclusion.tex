@@ -1,0 +1,50 @@
+\section{Discussion}
+The results of the experiments suggest that our hypotheses are true. To mathematically explain our data, we introduce two main principles that describe the generation of the spatial and referential pointing actions. 
+
+\paragraph{Spatial Pointing Action} Let $r$ be the ray that comes out of the pointing finger, $S$ be the surface on the table in the workspace $\mathcal{W}$, then $x^*$ defines the location of the pointing action.
+
+Given an intended spatial location $x_{intent}$, it can be conveyed using the pointing action,
+$$ x^* = x_{intent} + \epsilon,$$ 
+which defines some $ \epsilon$-neighborhood around $x_{intent}$. 
+
+The results indicate that the value of $\epsilon$ is small for spatial pointing actions. 
+
+The exact value of $\epsilon$  depends on perspective (as observed in the bottom row of Figure.\ref{fig:aggregatesimple}), context (as observed in Table.~\ref{tab:natural-unnatural}), and other factors, for instance commonsense. 
+ 
+Commonsense defines a constraint on the domain of possible values of $x_{intent}$ that can be attained in the workspace $\mathcal{W}$, i.e., 
+$$x_{intent}\in CS \subseteq \mathcal{W}.$$ 
+This relates to the \textit{Natural vs Unnatural} trials where commonsense changes the possible spatial locations $x^*$ can explain by constraining the domain of $x_{intent}$.
+ 
+
+\paragraph{Referential Pointing Action}
+Suppose there are $n$ objects located on the surface $o_1, \dots o_N \in S$, the intent of a referential pointing action $x^*$ refers to an object $o_{intent}$. Let $d(o_i,x)$ define the distance between the position of the object and $x$, then a referential pointing action $x^*$ can be generated such that
+
+\begin{align*}
+    % x^* &= o_{intent} + \epsilon \\
+    % {s.t.\ \ } 
+    o_{intent} &= \underset{{o_1,\dots, o_N}}{\argmin}\ d( o_i, x^* ), \\
+    \forall o_i\neq o_{intent},\ \ &| d( o_{intent}, x^* )  - d( o_{i}, x^* ) | > \epsilon
+\end{align*}
+
+
+
+% Define a function $\mathcal{D}(o_i, x^*)$ as the minimum displacement of the object $o_i$ required to intersect with an region defined around $x^*$ in terms of an $\epsilon$, $(x^*-\epsilon, x^*+\epsilon)$.
+% Then \\ $r \subseteq s = \{x^*\} \quad then \\ 
+% $ Intended--Object $= \underset{{o_1,\dots, o_N}}{\argmin}\ \ \mathcal{D}(o_i,x^*)$.
+This means that the referential pointing action has to be closest in terms of distance $d(\cdot)$ to an intended object $o_{intent}$. 
+
+However, ambiguities arise when two objects are too close to the pointing location $x^*$, i.e., the geometries of more than one object intersects with the $\epsilon$-neighborhood of $x^*$. The pointing is also ambiguous when the geometries are equidistant from $x^*$, i.e., the difference in the distances to objects is less than $\epsilon$.  
+
+
+\section{Conclusion}
+\label{conclusion}
+
+Shifting the sands \cite{graff2000shifting}
+
+
+ ALICE KYBURG and MICHAEL MORREAU
+FITTING WORDS: VAGUE LANGUAGE IN CONTEXT \cite{kyburg2000fitting}
+
+Grounding in Communcation \cite{clark1991grounding}
+
+The dataset is attached.
