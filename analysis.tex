@@ -32,6 +32,23 @@ To study if we are observing the same effects in the results of the reverse tria
 correction with a significance level of 0.05. We found that changing the robot, removing the speech and changing the direction of the pointing action does not make a difference in the interpretation of spatial pointing and referential pointing within any margin that is less than 5\%.
 
 
+\begin{table}[H]
+% \caption{}
+\label{tab:naturaltrial}
+\begin{tabular}{lllll}
+          &               & correct     & incorrect & ambiguous \\ \hline
+unnatural & top           & 12          & 9         & 9         \\
+          & \textbf{edge} & \textbf{24} & 2         & 4         \\
+          & table         & 2           & 2         & 26        \\ \hline
+natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
+          & edge          & 9           & 11        & 10        \\
+          & table         & 7           & 13        & 12        \\ \hline
+\end{tabular}
+\caption{Results of the unnatural scene and natural scene. (numbers are our of 30) }
+\label{tab:natural-unnatural}
+\end{table}
+
+
 \paragraph{Natural vs Unnatural}
 
 We observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain for subjects that there is no gravity, majority of them agree with the final image that has the cube placed on the edge of the cube. Table~\ref{tab:natural-unnatural} presents the results of this experiment. 
@@ -43,7 +60,6 @@ We observed in the natural scene, when the end-effector points towards the edge 
     \vspace{-0.1in}
     \caption{
     The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
-    % (\textit{Left:}) The object lies on top; (\textit{Middle:}) The object lies in an unstable manner off the edge;  (\textit{Right:}) The object lies beside on the table.
     }
     \label{fig:topedgetable}
     \vspace{-0.2in}
@@ -85,21 +101,23 @@ We observed in the natural scene, when the end-effector points towards the edge 
 % \label{tab:natural-unnatural}
 % \end{table}
 
-\begin{table}[H]
-% \caption{}
-\label{tab:naturaltrial}
-\begin{tabular}{lllll}
-          &               & correct     & incorrect & ambiguous \\ \hline
-unnatural & top           & 12          & 9         & 9         \\
-          & \textbf{edge} & \textbf{24} & 2         & 4         \\
-          & table         & 2           & 2         & 26        \\ \hline
-natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
-          & edge          & 9           & 11        & 10        \\
-          & table         & 7           & 13        & 12        \\ \hline
-\end{tabular}
-\caption{Results of the unnatural scene and natural scene. (numbers are our of 30) }
-\label{tab:natural-unnatural}
-\end{table}
+
+
+
+
+
+\paragraph{Different verbs}
+The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the p-values suggest that the differences in judgements for each sampled point with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
+
+
+
+\paragraph{Cluttered}
+
+As we can see in Figure~\ref{fig:cluttered}, the higher is the absolute difference of centers of distances from the center, the more likely it is that subjects pick a mug (green or red) as opposed to the \textit{ambiguous} choice. That is when the two mugs were very close, almost next to each other (less than 10 cm apart), majority of subjects chose the \textit{ambiguous} option. 
+ 
+
+
+When the target is not very close to the distractor, and when the pointing finger points towards $x^*$ on the table that is closer to one mug, subjects picked the mug that was the correct target of the pointing action more often than the incorrect one. This was true for all of the cases in our dataset. 
 
 
 \begin{figure}[H]
@@ -114,17 +132,3 @@ natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
     }
     \label{fig:cluttered}
 \end{figure}
-
-\paragraph{Different verbs}
-The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the p-values suggest that the differences in judgements for each sampled point with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
-
-
-
-\paragraph{Cluttered}
-
-As we can see in Figure~\ref{fig:cluttered}, the higher is the absolute difference of centers of distances from the center, the more likely it is that subjects pick a mug (green or red) as opposed to the \textit{ambiguous} choice. That is when the two mugs were very close, almost next to each other (less than 10 cm apart), majority of subjects chose the \textit{ambiguous} option. 
- 
-
-
-When the target is not very close to the distractor, and when the pointing finger points towards $x^*$ on the table that is closer to one mug, subjects picked the mug that was the correct target of the pointing action more often than the incorrect one. This was true for all of the cases in our dataset. Referential pointing is flexible. Even in the presence of a distractor, there is not need for accurate exact pointing, as long as the target object is not ambiguous, people interpret the pointing action correctly.
-

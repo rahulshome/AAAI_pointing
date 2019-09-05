@@ -1,19 +1,15 @@
-This section first describes the commonalities of the experiments that were designed to test our hypothesis, in terms of the experimental setup. The specific variants of the experiments that were run is described as a part of the methods. 
-All of the experiments described in this section together with the methods that we have chosen to analyze the data based on a private but approved pre-registration on \textit{aspredicted.org}. We will make the pre-registration public once the anonymity period ends.
+Our experiments share a common animation platform (our Experiment Setup) and a common Data Collection protocol.  Our experiments differ in presenting subjects with a range of Experimental Conditions.  All of the experiments described in this section together with the methods that we have chosen to analyze the data based on a private but approved pre-registration on \textit{aspredicted.org}. We will make the pre-registration public once the anonymity period ends.
 
 \subsection{Experiment Setup}
-The setup of the experiment describes the robots used, the environment with the objects and the procedures to generate motions and actions necessary to design different evaluation conditions.
+Each animation shows a simulated robot producing two pointing gestures to specify a pick-and-place task.  Following the animation, viewers are asked whether a specific image represents a possible result of the specified task.
 
-\noindent\textbf{Robotic Platforms}: The experiments were performed on two separate robotic platforms, a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.
-The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka} is consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are fitted with a singly fingered tooltip, where pointing gestures are designed in terms of the outward ray coming out of the end-effector.
-
-
+\noindent\textbf{Robotic Platforms}: The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka} is consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tooltip, where pointing gestures are modeled in terms of the outward ray coming out of the end-effector.
 
 \noindent\textbf{Workspace Setup}: Objects are placed in front of the manipulators. In certain trials a table is placed in front of the robot as well, and the objects rest in stable configurations on top of the table. A pick-and-place task is provided specified in terms of the positions of one of the objects. 
 
 \noindent\textbf{Objects}: The objects used in the study include small household items like mugs, saucers and boxes (cuboids), that are all placed in from on the robots.
 
-\noindent\textbf{Motion Generation}: The end-effector of the manipulator is instructed to move to pre-specified waypoints that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving \textit{Inverse-Kinematics} for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library \cite{littlefield2014extensible}. The motions were replayed on the model of the robot, and rendered in \textit{Blender}.
+\noindent\textbf{Motion Generation}: The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving \textit{Inverse-Kinematics} for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library \cite{littlefield2014extensible}. The motions were replayed on the model of the robot, and rendered in \textit{Blender}.
 
 % \begin{figure}[t]
 %     \centering
@@ -32,12 +28,12 @@ The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either si
 
 \begin{figure}[h!]
     \centering
-    % \includegraphics[width=0.5\textwidth]{spatial-referential.pdf}
-    \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img11.png}
-    \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img21.png}
-    \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img12.png}
-    \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img22.png}
-    \caption{Scenes from the simulated setup showing the differences between referential (\textit{left}) and spacial pointing (\textit{right}), demonstrated on a second robotic manipulator, \textit{Kuka IIWA14}.}
+    \includegraphics[width=0.48\textwidth]{spatial-referential.pdf}
+    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img11.png}
+    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img21.png}
+    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img12.png}
+    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img22.png}
+    \caption{The image shows the differences between referential (\textit{top}) and spacial pointing to the location of object placement (\textit{bottom}), demonstrated on a robotic manipulator, \textit{Kuka IIWA14}. An overlay of the object is shown at the placement location where spatial pointing needs to be directed.  Human subjects are more flexible with their interpretation of imprecise referential pointing than spatial.}
     \label{fig:spatial}
 \end{figure}
 
@@ -54,40 +50,31 @@ The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either si
 
 % To sample $N$ poses, the largest eclipse that fits into the conic section $P$ is divided into 4 quadrants $q_1:q_4$ (See Figure~\ref{fig:pointing} (C)) . Within each quadrant $q_i$ the $N/4$ $(x,y)$ positions are sampled uniformly at random. For each placement $yaw$ is randomly sampled from the domain $(0, 2\pi)$. 
 
-\noindent\textbf{Pointing Action Generation}: Pointing gesture is modeled by a cone $C(r, \theta)$ coming out of the pointing finger where $r$ represents the axis and $\theta$ represents the vertex angle of the cone. As illustrated in Fig~\ref{fig:pointing}, a robot is using it's finger to point to an object placed on a rest surface. For the scope of this study we assume that the rest surface is a plane represented by $S$. The part of the conic section that lies on the surface of the table is given by $P=C \cap S$.
+\noindent\textbf{Pointing Action Generation}: Potential pointing targets are placed using a cone $C(r, \theta)$, where $r$ represents the pointing ray and $\theta$ represents the vertex angle of the cone. As illustrated in Fig~\ref{fig:pointing}, the cone allows us to assess the possible divergence between the pointing ray and the actual location of potential target objects on the rest surface $S$. 
 
-To identify the geometry for the correct pointing gesture in different cases, $N$ object poses $p_i, i=1:N$ are sampled within $P$. While $p_i$ is the 6d pose for the object with translation $t \in R^3$ and orientation $R \in SO(3)$ only 2  degrees-of-freedom $(x, y)$ corresponding to $t$ are varied in the experiments. By fixing the $z$ coordinate for translation and restricting the z-axis of rotation to be perpendicular to $S$, it is ensured that the object rests in a physically stable configuration on the table.
+Given a pointing ray $r$, we assess the resolution of the pointing gesture by sampling $N$ object poses $p_i, i=1:N$ in $P=C(r, \theta) \cap S$---the intersection of the pointing cone with the rest surface.  While $p_i$ is the 6d pose for the object with translation $t \in R^3$ and orientation $R \in SO(3)$ only 2  degrees-of-freedom $(x, y)$ corresponding to $t$ are varied in the experiments. By fixing the $z$ coordinate for translation and restricting the z-axis of rotation to be perpendicular to $S$, it is ensured that the object rests in a physically stable configuration on the table.
 
 The $N$ object poses are sampled by fitting an ellipse within $P$ and dividing the ellipse into 4 quadrants $q_1:q_4$ (See Figure~\ref{fig:pointing} (C)) . Within each quadrant $q_i$ the $N/4$ $(x,y)$ positions are sampled uniformly at random. For certain experiments additional samples are generated with an objective to increase coverage of samples within the ellipse by utilizing a dispersion measure.
 
 % Malihe needs to check this.
 
 
-\noindent\textbf{Speech}: Some experiments also included verbal cues with phrases like '\textit{Put that there}' along with the pointing actions. It was very important for the pointing actions and these verbal cues to be in synchronization. To fulfill this we generate the voice using Amazon Polly with text written in SSML format and make sure that peak of the gesture (the moment a gesture comes to a stop) is in alignment with the peak of each audio phrase in the verbal cue. During the generation of the video itself we took note of the peak moments of the gestures and then manipulated the duration between peaks of the audio using SSML to match them with gesture peaks after analyzing the audio with an open-source tool- PRAAT \footnote{www.praat.org}.
-
-
-\subsection{Experiment Design}
-
-Using the setup of the experiments, videos and images from simulation are generated for different benchmarks, and data is collected to study the differences between the pointing gestures, and test our hypothesis. It should be noted that the restrictions of the a simulated 2D interface of videos, and images, that serve as the form of interaction with human subjects can introduce artifacts of the effect of perspective, which we have attempted to control for.  
+\noindent\textbf{Speech}: Some experiments also included verbal cues with phrases like '\textit{Put that there}' along with the pointing actions. It was very important for the pointing actions and these verbal cues to be in synchronization. To fulfill this we generate the voice using Amazon Polly with text written in SSML format and make sure that peak of the gesture (the moment a gesture comes to a stop) is in alignment with the peak of each audio phrase in the accompanying speech. During the generation of the video itself we took note of the peak moments of the gestures and then manipulated the duration between peaks of the audio using SSML to match them with gesture peaks after analyzing the audio with the open-source tool PRAAT\footnote{www.praat.org}.
 
 \subsection{Data Collection}
 
-
-Participants are asked to report judgments on the interpretation of the pointing action in each class; referential and spatial.  Each participant undertakes two trials from each class. We introduce a dataset of over 5130 responses to robot pointing actions in this study.
-
-Data collection was performed in \textit{Amazon Mechanical Turk}.
-All subjects agreed to a consent form and were compensated at an estimated rate of \textit{USD 20} an hour. The subject-pool was restricted to non-colorblind US citizens. Subjects are presented a rendered video of the simulation where the robot performs one referential pointing action, and one spatial pointing action which amounts to it pointing to an object, and then to a final location. During these executions synchronized speech is included in some of the trials to provide verbal cues.
+Data collection was performed in \textit{Amazon Mechanical Turk}.All subjects agreed to a consent form and were compensated at an estimated rate of \textit{USD 20} an hour. The subject-pool was restricted to non-colorblind US citizens. Subjects are presented a rendered video of the simulation where the robot performs one referential pointing action, and one spatial pointing action which amounts to it pointing to an object, and then to a final location. During these executions synchronized speech is included in some of the trials to provide verbal cues.
 
 Then on the same page, subjects see the image that shows the result of the pointing action. They are asked whether the result is (a) correct, (b) incorrect, or (c) ambiguous.  
 
+To test our hypothesis, we studied the interpretation of the two pointing behaviours in different contexts. Assuming our conjecture and a significance level of 0.05, a sample of 28 people in each condition is enough to detect our effect with a 95\% power.  Participants are asked to report judgments on the interpretation of the pointing action in each class.  Each participant undertakes two trials from each class.  The range of different cases are described below.  Overall, the data collection in this study involved over 7,290 responses to robot pointing actions.
 
+\subsection{Experimental Conditions}
 
-\subsection{Methods}
-
-To test our hypothesis, we studied the interpretation of the two pointing behaviours in different contexts. Assuming our conjecture and a significance level of 0.05, a sample of 28 people in each condition is enough to detect our effect with a 95\% power.
+We used our experiment setup to generate videos and images from the simulation for a range of different conditions.
 
 \paragraph{Referential vs Spatial}
-In this trial, to reduce the chances of possible ambiguities, we place only one mug is on the table. The \textit{Baxter} robot points its right arm to the mug and then points to its final position, accompanied by a synchronized verbal cue, '\textit{Put that there.}'
+In this condition, to reduce the chances of possible ambiguities, we place only one mug is on the table. The \textit{Baxter} robot points its right arm to the mug and then points to its final position, accompanied by a synchronized verbal cue, `\textit{Put that there.}'
 
 % The final image then presents the accurate final position of the mug. Here, we vary the initial position of the mug that is we sample 8 random points from the three cones explained in section yyy. 
 
@@ -101,14 +88,10 @@ To test the effect for the spatial pointing action, we test similarly sampled po
 
 \noindent\textit{Effect of speech}: In order to test the effect of speech on the disparity between the kinds of pointing actions, a set of experiments were designed under the \textit{Referential vs Spatial} method with and without any speech. All subsequent methods will include verbal cues during their action execution. These cues are audible in the video.
 
-
-\noindent\textit{Reverse Task}: 
-
-One set of experiments are run for the pick-and-place task with the initial and final positions of the object flipped for the reverse task. This trial is designed to be identical the Referential vs Spatial trials, except for the direction. The motions are still executed on the \textit{Baxter's} right arm. 
-
+\noindent\textit{Reverse Task}: One set of experiments are run for the pick-and-place task with the initial and final positions of the object flipped for the reverse task. This trial is designed to be identical the Referential vs Spatial trials, except for the direction. The motions are still executed on the \textit{Baxter's} right arm. 
 
 \noindent\textit{Different Robotic Arm}:
-In order to ensure that the results obtained in this study are not dependent on the choice of the robotic platform or its visual appearance, a second robot - a singly armed industrial \textit{Kuka} manipulator - is evaluated in the Referential vs Spatial study (shown in Figure~\ref{fig:spatial}).
+In order to ensure that the results obtained in this study are not dependent on the choice of the robotic platform or its visual appearance, a second robot---a singly armed industrial \textit{Kuka} manipulator---is evaluated in the Referential vs Spatial study (shown in Figure~\ref{fig:spatial}).
 
 \begin{figure}[t]
     % \vspace{-0.1in}
@@ -118,6 +101,7 @@ In order to ensure that the results obtained in this study are not dependent on 
     % \vspace{-0.3in}
     \label{fig:cluttered_trial}
 \end{figure}
+
 \paragraph{Cluttered Scene}
 To study how the presence of other objects would change the behaviour of referential pointing, we examine the interpretation of the pointing actions when there are multiple objects on the tables. We start with a setup where there are 2 cups placed on the table (similar to the setup in Figure~\ref{fig:cluttered_trial}). One is a target cup placed at position $x_{object}$ and a distractor cup at position $x_{distractor}$. With the robot performing an initial pointing action to a position $x_{init}$ on the table. Both the objects are sampled around $x_{init}$ along the diametric line of the conic section arising from increasing cone angles of $45^\circ, 67.5^\circ, $ and $90^\circ$, where the separation of $x_{object}$, and $x_{distractor}$ is equal to the length of the diameter of the conic section, $D$. The objects are then positioned on the diametric line with a random offset between $[-\frac{D}{2}, \frac{D}{2}]$ around $x_{init}$ and along the line. This means that the objects are at various distances apart, and depending upon the offset, one of the objects is nearer to the pointing action. The setup induces that the nearer cup serves as the \textit{object}, and the farther one serves as the \textit{distractor}. The motions are performed on the \textit{Baxter's} right arm. The camera perspective in simulation is set to be facing into the pointing direction. The subjects in this trial are shown images of the instant of the referential pointing action.
 
@@ -132,5 +116,5 @@ The pointing action, as well as the objects of interest stay the identical betwe
 
 
 \paragraph{Different verbs}  
-To test if the effect is specific to the verb put, we designed a control experiment where everything remained the same as the Referential vs Spatial trials except the verb \textit{put} which we replaced with \textit{place, move} and \textit{push}. Here again 30 data points for each sampled $x^*$
+To test if the effect is specific to the verb \textit{put}, we designed a control condition where everything remained the same as the Referential vs Spatial trials except the verb \textit{put} which we replaced with \textit{place, move} and \textit{push}. Here again 30 data points for each sampled $x^*$
 

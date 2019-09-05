@@ -1,29 +1,29 @@
-We study effective ways to express intent for a pick-and-place task. This section introduces a robotic pick-and-place task and defines the pointing gestures that can express such intents. A measure for the effectiveness of such expressions and demonstrations is for a human observer to understand such intents, and correctly identify the description of the pick-and-place tasks. We hypothesize that the interpreting of pointing action varies largely when the target is part of the space as opposed to a referent object. To distinguish between these to classes, we design several experiments.
+We begin with some formal preliminaries to define pick-and-place tasks and characterize the information required to specify them.
  
-\noindent\textbf{Manipulator}: A typical robotic system is endowed with the means to physically interact with its immediate vicinity. A conventional class of such robots are called \textit{manipulators}, which are in essence robotic arms. 
-
+\noindent\textbf{Manipulator}: A typical robotic system is endowed with the means to physically interact with its immediate vicinity. A conventional class of such robots are called \textit{manipulators}, of which robotic arms are the prime example. 
 
 \noindent\textbf{Workspace}: The manipulator operates in a three-dimensional workspace 
-$\mathcal{W}\subseteq \mathbb{R}^3$ along with other objects in the scene with 3D coordinate positions being represented by $x\in\mathcal{W}$. The workspace also contains a stable surface of interest defined by a plane $S\in\mathcal{W}$. 
+$\mathcal{W}\subseteq \mathbb{R}^3$. The workspace also contains a stable surface of interest defined by a plane $S\subset\mathcal{W}$ along with various objects. To represent 3D coordinates of workspace positions, we use $x\in\mathcal{W}$. 
 
 \noindent\textbf{End-effector}: The \textit{tool-tips} or \textit{end-effectors} are typically geometries that are part of the manipulator that can interact with objects in the environment. These form a manipulator's chief mode of picking and placing objects of interest. These can range from articulated fingers to suction cups. A subset of the workspace that the robot can \textit{reach} with its end-effector is called the reachable workspace. 
 
-\noindent\textbf{Pick-and-place}: Given a target object in its workspace, a \textit{pick-and-place} task requires the object to be picked up from its initial position and orientation, and placed at a final position and orientation. When a manipulator executes this task in its reachable workspace, it uses its end-effector. Such a task can be expressed as the following tuple
-$$ PAP = < o, x_{init}, x_{final} >, $$
-where $o$ is the object, $x_{init}$ is the initial position of the object, and $x_{final}$ is the final placement position. 
+\noindent\textbf{Pick-and-place}: Given a target object in its workspace, a \textit{pick-and-place} task requires the object to be picked up from its initial position and orientation, and placed at a final position and orientation. When a manipulator executes this task in its reachable workspace, it uses its end-effector. 
+In the rest of this work we will ignore the effect of different orientations of the objects, by considering objects with sufficient symmetry. Due to this simplification, we can consider the pick-and-place task in terms of a transition from an initial position $x_{init}\in\mathcal{W}$ to a final placement position $x_{final}\in\mathcal{W}$.  Thus, a pick-and-place task can be specified with a tuple
+$$ PAP = < o, x_{init}, x_{final} >. $$
 
-In the rest of this work we will ignore the effect of different orientations of the objects, by considering objects with sufficient symmetry. Due to this simplification, we can consider the pick-and-place task in terms of just their positions as $x_{init}\in\mathcal{W}, x_{final}\in\mathcal{W}$.
+\noindent\textbf{Pointing Action}: Within its reachable workspace the end-effector of the manipulator can attain different orientations to fully specify a reachable \textit{pose} $p$, which describes its position and orientation.  The robots we study have a directional tooltip that viewers naturally see as projecting a ray $r$ along its axis outward into the scene.  In understanding pointing as communication, the key question is the relationship between the ray $r$ and the spatial values $x_{init}$ and $x_{final}$ that define the pick-and-place task.
 
-\noindent\textbf{Pointing Action}: Within its reachable workspace the end-effector of the manipulator can attain different orientations to fully specify a reachable \textit{pose} $p$, which describes its position and orientation. \textit{Pointing} is described by a spatial relationship between such an end-effector pose, and a subset of the workspace. In previous literature a typical way to represent this relation has been with an outward ray, or a cone protruding out of the end-effector geometry. 
-
-In more concrete terms, given a ray $r$ coming out of the end-effector geometry and where it intersects , and define the location of the pointing as the intersection of this ray on the stable surface, $$x^*= r\cap S$$.
+To make this concrete, we distinguish between the \emph{target} of pointing and the \emph{intent} of pointing.
+Given the ray $r$ coming out of the end-effector geometry, we define the target of the pointing as the intersection of this ray on the stable surface, $$x^*= r\cap S.$$
 % Initially we shall describe this relationship of \textit{pointing} loosely, and narrow down on what it entails through our study.
-
-A pointing action is associated with its intent. In this work we focus on two types of pointing gestures necessary for expressing the intent of a \textit{pick-and-place} task, in sequence. These are as follows:
+Meanwhile, the intent of pointing specifies one component of a pick-and-place task.  There are two cases.
 \begin{itemize}
-    \item [-] \textit{Referential Pointing:} The action that places the end-effector in a pose that \textit{points} to a target object, that needs to be picked up. This object is the \textit{referent} of such an action. This action refers to the correct target object $o$ along with its the initial position $x_{init}$, based on where the object resides.
-    \item [-] \textit{Spatial Pointing:} The action that places the end-effector in a pose that \textit{points} to a location in the workspace where the object needs to be placed, i.e, $x_{final}$.
+    \item [-] \textit{Referential Pointing:} The pointing action is intended to identify a target object $o$ to be picked up. This object is the \textit{referent} of such an action. We can find $x_{init}$, based on the present position of $o$.
+    \item [-] \textit{Spatial Pointing:} The pointing action is intended to identify the location in the workspace where the object needs to be placed, i.e, $x_{final}$.
 \end{itemize}
+
+We study effective ways to express intent for a pick-and-place task. In other words, what is the relationship between a pointing ray $r$ and the location $x_{init}$ or $x_{final}$ that it is intended to identify?  To assess these relationships, we ask human observers to view animations expressing pick-and-place tasks and classify their interpretations.  To understand the factors involved, we investigate a range of experimental conditions.
+
 
 % \noindent\textbf{Hypothesis}: One way to model the accuracy of the pointing action is to measure the precision of the focused area of a pointing gesture, the so-called pointing cone. We challenge this argument by identifying two main behaviours: referential pointing and spatial pointing.  Our main hypothesis is that the interpretation of pointing actions when the target is part of the space is different from when the target is an object. We expect to run some exploratory studies as well to study how the verbal content and arrangement of objects in the gesture space can influence the interpretation of the pointing action in these two scenarios.
 

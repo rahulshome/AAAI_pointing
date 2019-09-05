@@ -1,50 +1,23 @@
-\section{Discussion}
-The results of the experiments suggest that our hypotheses are true. To mathematically explain our data, we introduce two main principles that describe the generation of the spatial and referential pointing actions. 
+\section{Design Principles}
 
-\paragraph{Spatial Pointing Action} Let $r$ be the ray that comes out of the pointing finger, $S$ be the surface on the table in the workspace $\mathcal{W}$, then $x^*$ defines the location of the pointing action.
+The results of the experiments suggest that spatial pointing is interpreted rather precisely, where referential pointing is interpreted relatively flexibly.  This naturally aligns with the possibility for alternative interpretations.  For spatial reference, any location is a potential target.  However, for referential pointing, it suffices to distinguish the target object from its distractors.
 
-Given an intended spatial location $x_{intent}$, it can be conveyed using the pointing action,
-$$ x^* = x_{intent} + \epsilon,$$ 
-which defines some $ \epsilon$-neighborhood around $x_{intent}$. 
+We can characterize this interpretive process in formal terms by drawing on observations from the literature on vagueness \cite{kyburg2000fitting,graff2000shifting}.  Any pointing gesture starts from a set of candidate interpretations $D \subset \mathcal{W}$ determined by the context and the communicative goal.  In unconstrained situations, spatial pointing allows a full set of candidates $D = \mathcal{W}.$  If factors like common-sense physics impose task constraints, that translates to restrictions on feasible targets $CS$, leading to a more restricted set of candidates $D = CS \cap \mathcal{W}$.  Finally, for referential pointing, the potential targets are located at locations $x_1 \ldots x_N \in S$, and $D = \{ x_1 \ldots x_N \}.$
 
-The results indicate that the value of $\epsilon$ is small for spatial pointing actions. 
+Based on the communicative setting, we know that the pointing gesture, like any vague referring expression, must select at least one of the possible interpretations \cite{kyburg2000fitting}.  We can find the best interpretation by its distance to the target $x^*$ of the pointing gesture.  Using $d(x,x^*)$ to denote this distance, gives us a threshold $$\theta = \min_{x \in D} d(x, x^*).$$
 
-The exact value of $\epsilon$  depends on perspective (as observed in the bottom row of Figure.\ref{fig:aggregatesimple}), context (as observed in Table.~\ref{tab:natural-unnatural}), and other factors, for instance commonsense. 
- 
-Commonsense defines a constraint on the domain of possible values of $x_{intent}$ that can be attained in the workspace $\mathcal{W}$, i.e., 
-$$x_{intent}\in CS \subseteq \mathcal{W}.$$ 
-This relates to the \textit{Natural vs Unnatural} trials where commonsense changes the possible spatial locations $x^*$ can explain by constraining the domain of $x_{intent}$.
- 
+Vague descriptions can't be sensitive to fine distinctions \cite{graff2000shifting}.  So if a referent at $\theta$ is close enough to the pointing target, then another at $\theta + \epsilon$ must be close enough as well, for any value of $\epsilon$ that is not significant in the conversational context.  Our results suggest that viewers regard 10cm (in the scale of the model simulation) as an approximate threshold for a significant difference in our experiments.
 
-\paragraph{Referential Pointing Action}
-Suppose there are $n$ objects located on the surface $o_1, \dots o_N \in S$, the intent of a referential pointing action $x^*$ refers to an object $o_{intent}$. Let $d(o_i,x)$ define the distance between the position of the object and $x$, then a referential pointing action $x^*$ can be generated such that
+In all, we predict that a pointing gesture is interpreted as referring to $\{x \in D | d(x,x^*) \leq \theta + \epsilon\}.$  We explain the different interpretations through the different choice of $D$.
 
-\begin{align*}
-    % x^* &= o_{intent} + \epsilon \\
-    % {s.t.\ \ } 
-    o_{intent} &= \underset{{o_1,\dots, o_N}}{\argmin}\ d( o_i, x^* ), \\
-    \forall o_i\neq o_{intent},\ \ &| d( o_{intent}, x^* )  - d( o_{i}, x^* ) | > \epsilon
-\end{align*}
+\paragraph{Spatial Pointing.}  For unconstrained spatial pointing, $x^* \in D$, so $\theta=0$.  That means, the intended placement cannot differ significantly from the pointing target.  Taking into account common sense, we allow for small divergences that connect the pointing, for example, to the closest stable placement.
 
-
-
-% Define a function $\mathcal{D}(o_i, x^*)$ as the minimum displacement of the object $o_i$ required to intersect with an region defined around $x^*$ in terms of an $\epsilon$, $(x^*-\epsilon, x^*+\epsilon)$.
-% Then \\ $r \subseteq s = \{x^*\} \quad then \\ 
-% $ Intended--Object $= \underset{{o_1,\dots, o_N}}{\argmin}\ \ \mathcal{D}(o_i,x^*)$.
-This means that the referential pointing action has to be closest in terms of distance $d(\cdot)$ to an intended object $o_{intent}$. 
-
-However, ambiguities arise when two objects are too close to the pointing location $x^*$, i.e., the geometries of more than one object intersects with the $\epsilon$-neighborhood of $x^*$. The pointing is also ambiguous when the geometries are equidistant from $x^*$, i.e., the difference in the distances to objects is less than $\epsilon$.  
-
+\paragraph{Referential Pointing.}  For referential pointing, candidates play a much stronger role.  A pointing gesture always has the closest object to the pointing target as a possible referent.  However, ambiguities arise when the geometries of more than one object intersect with the $\theta+\epsilon$-neighborhood of $x^*$.   We can think of that, intuitively, in terms of the effects of $\theta$ and $\epsilon$.  Alternative referents give rise to ambiguity not only when they are too close to the target location ($\theta$) but even when they are simply not significantly further away from the target location ($\epsilon$).  
 
 \section{Conclusion}
 \label{conclusion}
 
-Shifting the sands \cite{graff2000shifting}
+We have presented an empirical study of the interpretation of simulated robots instructing pick-and-place tasks.  Our results show that robots can effectively combine pointing gestures and spoken instructions to communicate both object information and spatial information---and offer the first empirical characterization of the use of robot gestures to communicate precise spatial locations.  The dataset and a demo of the experiments are attached with this submission, and will be released upon acceptance of the paper.
 
-
- ALICE KYBURG and MICHAEL MORREAU
-FITTING WORDS: VAGUE LANGUAGE IN CONTEXT \cite{kyburg2000fitting}
-
-Grounding in Communcation \cite{clark1991grounding}
-
-The dataset and a demo of the experiments are attached with this submission.
+We have suggested that pointing, like other vague references, select the candidates that are 
+It should be noted that the restrictions of the a simulated 2D interface of videos, and images, that serve as the form of interaction with human subjects can introduce artifacts of the effect of perspective.  
