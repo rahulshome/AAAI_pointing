@@ -3,13 +3,15 @@ Our experiments share a common animation platform (our Experiment Setup) and a c
 \subsection{Experiment Setup}
 Each animation shows a simulated robot producing two pointing gestures to specify a pick-and-place task.  Following the animation, viewers are asked whether a specific image represents a possible result of the specified task.
 
-\noindent\textbf{Robotic Platforms}: The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka} is consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tooltip, where pointing gestures are modeled in terms of the outward ray coming out of the end-effector.
+\noindent\textbf{Robotic Platforms}: The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka} is consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tool-tip, where the pointing ray is modeled as the direction of this tool-tip.
 
 \noindent\textbf{Workspace Setup}: Objects are placed in front of the manipulators. In certain trials a table is placed in front of the robot as well, and the objects rest in stable configurations on top of the table. A pick-and-place task is provided specified in terms of the positions of one of the objects. 
 
 \noindent\textbf{Objects}: The objects used in the study include small household items like mugs, saucers and boxes (cuboids), that are all placed in from on the robots.
 
-\noindent\textbf{Motion Generation}: The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving \textit{Inverse-Kinematics} for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library \cite{littlefield2014extensible}. The motions were replayed on the model of the robot, and rendered in \textit{Blender}.
+\noindent\textbf{Motion Generation}: The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving \textit{Inverse-Kinematics} for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library .
+% \cite{littlefield2014extensible}. 
+The motions were replayed on the model of the robot, and rendered in \textit{Blender}.
 
 % \begin{figure}[t]
 %     \centering
@@ -59,15 +61,15 @@ The $N$ object poses are sampled by fitting an ellipse within $P$ and dividing t
 % Malihe needs to check this.
 
 
-\noindent\textbf{Speech}: Some experiments also included verbal cues with phrases like '\textit{Put that there}' along with the pointing actions. It was very important for the pointing actions and these verbal cues to be in synchronization. To fulfill this we generate the voice using Amazon Polly with text written in SSML format and make sure that peak of the gesture (the moment a gesture comes to a stop) is in alignment with the peak of each audio phrase in the accompanying speech. During the generation of the video itself we took note of the peak moments of the gestures and then manipulated the duration between peaks of the audio using SSML to match them with gesture peaks after analyzing the audio with the open-source tool PRAAT\footnote{www.praat.org}.
+\noindent\textbf{Speech}: Some experiments also included verbal cues with phrases like `\textit{Put that there}' along with the pointing actions. It was very important for the pointing actions and these verbal cues to be in synchronization. To fulfill this we generate the voice using Amazon Polly with text written in SSML format and make sure that peak of the gesture (the moment a gesture comes to a stop) is in alignment with the peak of each audio phrase in the accompanying speech. During the generation of the video itself we took note of the peak moments of the gestures and then manipulated the duration between peaks of the audio using SSML to match them with gesture peaks after analyzing the audio with the open-source tool PRAAT (www.praat.org).
 
 \subsection{Data Collection}
 
-Data collection was performed in \textit{Amazon Mechanical Turk}.All subjects agreed to a consent form and were compensated at an estimated rate of \textit{USD 20} an hour. The subject-pool was restricted to non-colorblind US citizens. Subjects are presented a rendered video of the simulation where the robot performs one referential pointing action, and one spatial pointing action which amounts to it pointing to an object, and then to a final location. During these executions synchronized speech is included in some of the trials to provide verbal cues.
+Data collection was performed in \textit{Amazon Mechanical Turk}. All subjects agreed to a consent form and were compensated at an estimated rate of \textit{USD 20} an hour. The subject-pool was restricted to non-colorblind US citizens. Subjects are presented a rendered video of the simulation where the robot performs one referential pointing action, and one spatial pointing action which amounts to it pointing to an object, and then to a final location. During these executions synchronized speech is included in some of the trials to provide verbal cues.
 
 Then on the same page, subjects see the image that shows the result of the pointing action. They are asked whether the result is (a) correct, (b) incorrect, or (c) ambiguous.  
 
-To test our hypothesis, we studied the interpretation of the two pointing behaviours in different contexts. Assuming our conjecture and a significance level of 0.05, a sample of 28 people in each condition is enough to detect our effect with a 95\% power.  Participants are asked to report judgments on the interpretation of the pointing action in each class.  Each participant undertakes two trials from each class.  The range of different cases are described below.  Overall, the data collection in this study involved over 7,290 responses to robot pointing actions.
+To test our hypothesis, we studied the interpretation of the two pointing behaviors in different contexts. Assuming our conjecture and a significance level of 0.05, a sample of 28 people in each condition is enough to detect our effect with a 95\% power.  Participants are asked to report judgments on the interpretation of the pointing action in each class.  Each participant undertakes two trials from each class.  The range of different cases are described below.  Overall, the data collection in this study involved over 7,290 responses to robot pointing actions.
 
 \subsection{Experimental Conditions}
 
@@ -109,12 +111,22 @@ To study how the presence of other objects would change the behaviour of referen
 
 
 \paragraph{Natural vs Unnatural scene}
-In this experiment we study how the contextual and physical understanding of the world impacts the interpretation of pointing gestures. We generate a scenario for spatial pointing in which the right arm of the \textit{Baxter} points to a final placement position for the cuboidal object on top of a stack of cuboidal objects but towards the edge which makes it physically unstable. The final configurations of the object (Figure~\ref{fig:topedgetable}) shown to the users were a) object lying on top of the stack b) object in the unstable configuration towards the edge of the stack and c) object at the bottom of the stack towards one side. New videos are generated for each scenario along with verbal cues.
+In this condition we study how the contextual and physical understanding of the world impacts the interpretation of pointing gestures. We generate a scenario for spatial pointing in which the right arm of the \textit{Baxter} points to a final placement position for the cuboidal object on top of a stack of cuboidal objects but towards the edge which makes it physically unstable. The final configurations of the object (Figure~\ref{fig:topedgetable}) shown to the users were a) object lying on top of the stack b) object in the unstable configuration towards the edge of the stack and c) object at the bottom of the stack towards one side. New videos are generated for each scenario along with verbal cues.
 
 The pointing action, as well as the objects of interest stay the identical between the natural, and unnatural trials. The difference lies in other objects in the scene that could defy gravity and float in the unnatural trials. The subjects were given a text-based instruction at the beginning of an unnatural trial saying they were seeing a scene where "gravity does not exist". 
 
-
+\begin{figure}[H]
+% \vspace{-0.3in}
+    \centering
+    \includegraphics[width=0.4\textwidth, trim={0 0 0 0.7in},clip ] {figures/topedgetable.png}
+    \vspace{-0.1in}
+    \caption{
+    The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
+    }
+    \label{fig:topedgetable}
+    \vspace{-0.1in}
+\end{figure}
 
 \paragraph{Different verbs}  
-To test if the effect is specific to the verb \textit{put}, we designed a control condition where everything remained the same as the Referential vs Spatial trials except the verb \textit{put} which we replaced with \textit{place, move} and \textit{push}. Here again 30 data points for each sampled $x^*$
+To test if the effect is specific to the verb \textit{put}, we designed a control condition where everything remained the same as the Referential vs Spatial trials except the verb \textit{put} which we replaced with \textit{place, move} and \textit{push}. Here again we collect 30 data points for each sampled $x^*$
 

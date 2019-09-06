@@ -1,4 +1,6 @@
 \begin{figure*}[th!]
+% \vspace{-0.3in}
+
     \centering
     \includegraphics[width=0.5\textwidth, trim={0 0 0 3.3in},clip ] {figures/labels.png}\\
     \includegraphics[width=0.32\textwidth ] {figures/baxter_Referential_.png}
@@ -7,6 +9,7 @@
     \includegraphics[width=0.32\textwidth ]{figures/baxter_Spatial_.png}
     \includegraphics[width=0.32\textwidth ]{figures/baxter_Spatial-Reverse_.png}
     \includegraphics[width=0.32\textwidth ]{figures/kuka_Spatial_.png}
+    % \vspace{-0.1 in}
     \caption{The aggregated results from the referential versus spatial trials for the \textit{Baxter} and \textit{Kuka} robots. The locations of the responses correspond to the center of the circles, and are plotted in the coordinate frame centered at the position of the pointing action, marked with $\times$. The circles show the fraction of correct (grey), incorrect(black) and ambiguous(white) responses.}
     \label{fig:aggregatesimple}
 \end{figure*}
@@ -28,12 +31,8 @@ While the study attempts to separate out and measure the critical aspects of the
 
 To test our hypothesis, we performed a Chi-squared test and compared the proportion of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses in referential and spatial trials. The results of the test shows that these two classes are statistically significantly different ($\chi^2= 13.89, p = 0.00096$).
 
-To study if we are observing the same effects in the results of the reverse trial, no speech trial and the Kuka trial, we ran an equivalence test on the third hypothesis following the two one-sided tests method as described in \cite{lakens2017equivalence}, where each test is a pooled z-test with no continuity
-correction with a significance level of 0.05. We found that changing the robot, removing the speech and changing the direction of the pointing action does not make a difference in the interpretation of spatial pointing and referential pointing within any margin that is less than 5\%.
-
-
-\begin{table}[H]
-% \caption{}
+\begin{table}[h]
+% \vspace{-0.3in}
 \label{tab:naturaltrial}
 \begin{tabular}{lllll}
           &               & correct     & incorrect & ambiguous \\ \hline
@@ -46,24 +45,19 @@ natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
 \end{tabular}
 \caption{Results of the unnatural scene and natural scene. (numbers are our of 30) }
 \label{tab:natural-unnatural}
-\end{table}
+\end{table} \\
+
+To study if we are observing the same effects in the results of the reverse trial, no speech trial and the Kuka trial, we ran an equivalence test on the third hypothesis following the two one-sided tests method as described in \cite{lakens2017equivalence}, where each test is a pooled z-test with no continuity
+correction with a significance level of 0.05. We found that changing the robot, removing the speech and changing the direction of the pointing action does not make a difference in the interpretation of spatial pointing and referential pointing within any margin that is less than 5\%.
+
+
 
 
 \paragraph{Natural vs Unnatural}
 
 We observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain for subjects that there is no gravity, majority of them agree with the final image that has the cube placed on the edge of the cube. Table~\ref{tab:natural-unnatural} presents the results of this experiment. 
 
-\begin{figure}[H]
-% \vspace{-0.3in}
-    \centering
-    \includegraphics[width=0.4\textwidth, trim={0 0 0 0.7in},clip ] {figures/topedgetable.png}
-    \vspace{-0.1in}
-    \caption{
-    The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
-    }
-    \label{fig:topedgetable}
-    \vspace{-0.2in}
-\end{figure}
+
 
 
 % \begin{table}[]
@@ -107,20 +101,26 @@ We observed in the natural scene, when the end-effector points towards the edge 
 
 
 \paragraph{Different verbs}
-The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the p-values suggest that the differences in judgements for each sampled point with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
+The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the p-values also suggest that the differences in judgements for each sampled point with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
 
 
 
 \paragraph{Cluttered}
 
 As we can see in Figure~\ref{fig:cluttered}, the higher is the absolute difference of centers of distances from the center, the more likely it is that subjects pick a mug (green or red) as opposed to the \textit{ambiguous} choice. That is when the two mugs were very close, almost next to each other (less than 10 cm apart), majority of subjects chose the \textit{ambiguous} option. 
- 
+
+
+
+
+
 
 
 When the target is not very close to the distractor, and when the pointing finger points towards $x^*$ on the table that is closer to one mug, subjects picked the mug that was the correct target of the pointing action more often than the incorrect one. This was true for all of the cases in our dataset. 
 
 
-\begin{figure}[H]
+\begin{figure}[h!]
+% \vspace{-0.3in}
+
     \centering
     % \includegraphics[height=0.23\textwidth]{cluttered-malihe.png}
     \includegraphics[width=\linewidth]{figures/baxter_Clutter_granular.png}
@@ -131,4 +131,6 @@ When the target is not very close to the distractor, and when the pointing finge
     The \textit{x-axis} represents the absolute difference between the distances of each cup to the locations of pointing, the \textit{y-axis} represents the total distance between the two cups.
     }
     \label{fig:cluttered}
+    % \vspace{-0.3in}
+
 \end{figure}
