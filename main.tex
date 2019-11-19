@@ -11,12 +11,11 @@
 \usepackage{float}
 \usepackage{siunitx}
 \usepackage{multirow}
+\usepackage{hyperref}
 \newtheorem{hyp}{Hypothesis}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
-\newcommand{\rahul}[1]{{\color{red} \textbf{Rahul:} #1}}
-% \newcommand{\rahul}[1]{{\color{red} \textbf{Rahul:} }}
-% \newcommand{\mali}[1]{{\color{green} \textbf{Mali:} #1}}
+
 \frenchspacing
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
@@ -32,100 +31,32 @@
 
 % \title{Interpretation of Pointing Action: Expressing the intent of pick-and-place task}
 
-\author{AAAI Press\\
-Association for the Advancement of Artificial Intelligence\\
-2275 East Bayshore Road, Suite 160\\
-Palo Alto, California 94303\\
-}
+% \author{AAAI Press\\
+% Association for the Advancement of Artificial Intelligence\\
+% 2275 East Bayshore Road, Suite 160\\
+% Palo Alto, California 94303\\
+% }
+
+\author{Malihe Alikhani \quad  Baber Khalid* \quad Rahul Shome* \quad Chaitanya Mitash \quad Kostas Bekris \quad Matthew Stone\\
+  Computer Science, \quad Rutgers University, \quad {\tt\small firstname.lastname@rutgers.edu}}
+  
 \maketitle
 \begin{abstract}
 \begin{quote}
 
-Collaborative robotics requires effective communication between a robot and a human partner. Our work identifies limitations of existing models and proposes a set of interpretive principles for how a robotic arm can use pointing actions to communicate task information to people. These principles are evaluated using experiments where English-speaking human subjects view animations of simulated robots instructing pick-and-place tasks. The evaluation distinguishes two classes of pointing actions: referential pointing (identifying objects) and spatial pointing (identifying locations), both of which arise in pick-and-place tasks. Human subjects show greater flexibility in interpreting the intent of referential pointing compared to spatial pointing, which needs to be more deliberate. Our results also demonstrate the effects of variation in the environment and task context on the interpretation of pointing. The corpus and the experiments described in this work have implications for models of context and coordination as well as the effect of commonsense reasoning in human-robot interactions.
-
-
-
-%%%%%%%%%%%%%%%
-% Referential pointing to an object is easier for a human subject to understand, while spatial pointing may require support of additional queues. 
-%%%%%%%%%%%%%%%
-
-
-
-
-% There has been a lot of recent interest in the deployment of robotic manipulators in automation tasks, typically in warehouse settings or service robotics. Motion and task planning research has pushed the boundaries of the class of complex manipulation. However, in scenarios like a warehouse production line, if a robot is unable to service the current request, a human collaborator is typically available to fix the setup in order to resume the automated operation. Such a task the human performs will involve a set of pick-and-place actions in the robot's workspace. The question the current work raises is whether a robot can communicate to a human what the task specification is that the robot needs her to do.
-% % (Figure \ref{fig:examples}(e) presents a snapshot of a video that simulates the robot's motion.) 
-% The work builds a timed sequence of pointing gestures and motions of the robot end-effector that expresses the sequence of intended pick-and-place tasks to the human observer. 
-
-% \mali{to do after the meeting: 
-
-% - make sure to talk about the significance in Robotics.
-% - make sure to mention the ambiguities that can arise when working in a 2D space. I think we need to include the image of the two scenes in the Spatial pointing experiment to show why we see a line.   
-% - 
-
-
-% }
-
-
-% There has been significant growth in the applications of robotic agents in various domains, including factory automation, and service robotics. Both of these scenarios involve robots and humans to collaborate to various extents.
-
-
-
-% The current work focuses on arm-like robots called manipulators, which are designed to perform a rich set of pick-and-place tasks on target objects. 
-
-% Situations may arise where such a robotic system needs to communicate such a task specification to a human. 
-
-% This entails a referent action to point to the object of interest, and another gesture to express the spatial location of the placement. 
-
-
-
-% The work contrasts the difference between referential pointing actions, and spatial pointing actions, using a robotic pick-and-place as a demonstrative tool to evaluate the influence of contextual features of the environment on the content and goal of such actions.
-
-% The current work identifies the limitations of the models studied in previous work, when applied to the domain of collaborative robotics, and goes on to propose a set of axioms that were evaluated using experiments with human subjects, to study the rules of effective communication of the intent of pick-and-place tasks. 
-
-% We propose a mathematical model that enables robots to generate pointing configurations that make the goal object as clear as possible — pointing configurations that are legible. We study the implications of legibility on pointing, e.g. that the robot will sometimes need to trade off efficiency for the sake of clarity.
-
-% of investigate a typical way a robotic arm can express such an intent using pointing gestures.   
-
-
-
-% The study highlights that different kinds of pointing actions elicit different interpretations from human observers. The work contrasts the difference between referential pointing actions, and spatial pointing actions, using a robotic pick-and-place as a demonstrative tool to evaluate the influence of contextual features of the environment on the content and goal of such actions.
+Collaborative robotics requires effective communication between a robot and a human partner. This work proposes a set of interpretive principles for how a robotic arm can use pointing actions to communicate task information to people by extending existing models from the related literature. These principles are evaluated through studies where English-speaking human subjects view animations of simulated robots instructing pick-and-place tasks. The evaluation distinguishes two classes of pointing actions that arise in pick-and-place tasks: referential pointing (identifying objects) and spatial pointing (identifying locations). The study indicates that human subjects show greater flexibility in interpreting the intent of referential pointing compared to spatial pointing, which needs to be more deliberate. The results also demonstrate the effects of variation in the environment and task context on the interpretation of pointing. The corpus and the experiments described in this work can impact models of context and coordination as well as the effect of common sense reasoning in human-robot interactions.
 
 \end{quote}
 \end{abstract}
 
-\section{Introduction}
-\label{intro}
 \input{intro.tex}
-
-\section{Related work}
-\label{related-work}
 \input{related-work.tex}
-
-\section{Communicating Pick-and-Place}
-\label{problem}
 \input{problem.tex}
-
-\section{Experiments}
-\label{experiments}
 \input{experiments.tex}
-
-\section{Analysis}
-\label{analysis}
 \input{analysis.tex}
-
 \input{generation-evals.tex}
-
 \input{conclusion.tex}
 
-
-
-
-
-
-
-\bibliography{pointing} 
+\bibliography{pointing.bib} 
 \bibliographystyle{aaai}
-
-
-
 \end{document}
