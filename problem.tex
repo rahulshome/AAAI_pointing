@@ -15,15 +15,15 @@ $$ PAP = < o, x_{init}, x_{final} >. $$
 
 
 \begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{pointing_diagram}
-    \caption{(A) Workspace setup showing the pointing cone and the corresponding conic section on the table. (B) The degrees-of-freedom considered for placement of the object on the table. (C) Sampling policy to sample object poses within the conic section.}
+\centering
+\includegraphics[width=0.5\textwidth]{pointing_diagram}
+\caption{(A) Workspace setup showing the pointing cone and the corresponding conic section on the table. (B) The degrees-of-freedom considered for placement of the object on the table. (C) Sampling policy to sample object poses within the conic section.}
     \label{fig:pointing}
 \end{figure}
 
 \noindent\textbf{Pointing Action}: Within its reachable workspace the end-effector of the manipulator can attain different orientations to fully specify a reachable \textit{pose} $p$, which describes its position and orientation.  The robots we study have a directional tooltip that viewers naturally see as projecting a ray $r$ along its axis outward into the scene.  In understanding pointing as communication, the key question is the relationship between the ray $r$ and the spatial values $x_{init}$ and $x_{final}$ that define the pick-and-place task.
 
-% Initially we shall describe this relationship of \textit{pointing} loosely, and narrow down on what it entails through our study.
+own on what it entails through our study.
 
 To make this concrete, we distinguish between the \emph{target} of pointing and the \emph{intent} of pointing. Given the ray $r$ coming out of the end-effector geometry, we define the target of the pointing as the intersection of this ray on the stable surface, $$x^*= r\cap S.$$ Meanwhile, the intent of pointing specifies one component of a pick-and-place task.  There are two cases:
 \begin{itemize}
@@ -33,6 +33,3 @@ To make this concrete, we distinguish between the \emph{target} of pointing and 
 
 
 We study effective ways to express intent for a pick-and-place task. In other words, what is the relationship between a pointing ray $r$ and the location $x_{init}$ or $x_{final}$ that it is intended to identify?  To assess these relationships, we ask human observers to view animations expressing pick-and-place tasks and classify their interpretations.  To understand the factors involved, we investigate a range of experimental conditions.
-
-% \noindent\textbf{Hypothesis}: One way to model the accuracy of the pointing action is to measure the precision of the focused area of a pointing gesture, the so-called pointing cone. We challenge this argument by identifying two main behaviours: referential pointing and locating pointing.  Our main hypothesis is that the interpretation of pointing actions when the target is part of the space is different from when the target is an object. We expect to run some exploratory studies as well to study how the verbal content and arrangement of objects in the gesture space can influence the interpretation of the pointing action in these two scenarios.
-

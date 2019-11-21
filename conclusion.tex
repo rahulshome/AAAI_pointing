@@ -1,7 +1,7 @@
 
 \section{Design Principles}
 
-The results of the experiments suggest that spatial pointing is interpreted rather precisely, where referential pointing is interpreted relatively flexibly.  This naturally aligns with the possibility for alternative interpretations.  For spatial reference, any location is a potential target.  Nevertheless, for referential pointing, it suffices to distinguish the target object from its distractors.
+The results of the experiments suggest that locating pointing is interpreted rather precisely, where referential pointing is interpreted relatively flexibly.  This naturally aligns with the possibility for alternative interpretations.  For spatial reference, any location is a potential target.  Nevertheless, for referential pointing, it suffices to distinguish the target object from its distractors.
 
 We can characterize this interpretive process in formal terms by drawing on observations from the literature on vagueness \cite{kyburg2000fitting,graff2000shifting}.  Any pointing gesture starts from a set of candidate interpretations $D \subset \mathcal{W}$ determined by the context and the communicative goal.  In unconstrained situations, spatial pointing allows a full set of candidates $D = \mathcal{W}.$  If factors like common-sense physics impose task constraints, that translates to restrictions on feasible targets $CS$, leading to a more restricted set of candidates $D = CS \cap \mathcal{W}$.  Finally, for referential pointing, the potential targets are located at locations $x_1 \ldots x_N \in S$, and $D = \{ x_1 \ldots x_N \}.$
 
@@ -17,7 +17,7 @@ In all, we predict that a pointing gesture is interpreted as referring to $\{x \
 
 
 
-\section{Conclusion and future work}
+\section{Conclusion and Future Work}
 \label{conclusion}
 
 We have presented an empirical study of the interpretation of simulated robots instructing pick-and-place tasks.  Our results show that robots can effectively combine pointing gestures and spoken instructions to communicate both object information and spatial information. We offer - the first, to the best of the authors' knowledge - empirical characterization of the use of robot gestures to communicate precise spatial locations for placement purposes.  The dataset and a demo of the experiments are attached with this submission, and will be released upon acceptance of the paper.  We have suggested that pointing, in line with other vague references, select from a set of candidate interpretations that depend on the task, context and communicative goal.  They pick those candidates that are not significantly further from the pointing ray than the best ones.  This contrasts with previous models that required pointing gestures to target a referent exactly or fall within a context-independent pointing cone.
@@ -29,7 +29,14 @@ Our work has a number of limitations that suggest avenues for future work.   It 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Previous work by Dragan et al. and Zhao et al. have demonstrated the importance of pointing in trajectories executed by robots to refer to target objects. The current work provides a foundation to study the interpretation of different pointing actions and for designing trajectories for both referential and spatial targets. The design and evaluation of these trajectories is beyond the scope of the current work. Moreover, the addition of synchronized verbal cues is meant to draw the attention of the observer to specific states (referential and locating pointing) which must compose pick and place trajectories. Even though different types of trajectories are not evaluated, pick and place instants that compose such trajectories would be affected by the effects demonstrated in the paper.
 
-In lab experiments
+Future work can explore more tight-knit collaborative scenarios where multiple pick-and-place tasks can be composed to communicate more complex challenges. The study of the \textit{commonsense} settings opens up intriguing avenues of how such composite tasks like \textit{`setting up a dining table'} may be defined. The rules explored in the current work can serve to narrow down the domain of possible problem specifications in robotics challenges that involve human environments. 
 
-Baxter's head
+While the current work studies the modalities of pointing and verbal cues, effects of including additional robotic communication in the form of heads-up displays or simulated eye-gaze would be a very fascinating direction to explore.
 
+As an extension of the current results, lab experiments with human subjects and a real robots will be performed. Real world trials are invaluable in evaluating the intensity of the effects observed in the current paper, and would prove instrumental in achieving our goal of truly effective human-robot communication and collaboration.
+
+
+\section{Acknowledgments}
+The research presented here is supported by NSF
+Award IIS-1526723.
+Thanks to the anonymous reviewers for helpful comments. We would also like to thank the Mechanical Turk participants for their contributions.

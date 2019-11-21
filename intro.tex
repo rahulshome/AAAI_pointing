@@ -9,26 +9,12 @@ This work has two key contributions.  First, we create a systematic dataset, inv
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.4\textwidth, trim={0 0.3in 0 0in},clip]{figures/putthatthere2.png}
+    \includegraphics[width=0.45\textwidth, trim={0 0.3in 0 0in},clip]{figures/putthatthere2.png}
     \caption{A pick-and-place task requires a \textit{referential} pointing action to the object (orange cube) at the initial position, and a \textit{locating} pointing action to a final placement position (dotted cube). Such an action by a robot (in red) can also be accompanied by verbal cues like \textit{"Put that there."}}
     \label{fig:pap}
 \end{figure}
 
 The second contribution is a set of interpretive principles, inspired by the literature on vague communication, that summarize the above findings about robot pointing.  Our results suggest that pointing selects from a set of candidate interpretations determined by the type of information specified, the possibilities presented by the scene, and the options compatible with the current task.  In particular, we propose that pointing picks out all candidates that are not significantly further from the pointing ray than the closest alternatives.  Based on our empirical results, we present design principles that formalize the relevant notions of ``available alternatives'' and ``significantly further away'' and can be used in implementing future pointing robots.  The Analysis and Design Principles sections explains and justifies this approach and contextualizes it with previous research.
-
-% \malihe{continuous trajectory:
-
-
-% }
-
-% \malihe{
-
-% -- the reversed task
-% In the first set of experiments, the robot is pointing to an area towards the middle part of the table. We point to areas towards the edge of the table to control for this effect, i.e., the pick and place positions of the object are ‘reversed’. The place results provide a balance for the location that the subjects thought the robot was pointing at in the pick trials.
-
-% -- Baxter’s head
-% Baxter has a head above the torso. The effect of eye gaze in the interpretation of pointing action in human-human interaction has been studied by cognitive scientists. We acknowledge that it is an important factor. For this paper, however, we are not experimenting with this aspect. We are not using eye gaze and head position is fixed. Another important motivating reason to not rely on eye-gaze can be demonstrated by the second Kuka arm which has no such head. Such a ‘head’ is not a general feature of robotic manipulators and we chose to not focus on eye-gaze effects as a part of the current study.
-% }
 
 
 

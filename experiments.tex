@@ -9,36 +9,20 @@ Each animation shows a simulated robot producing two pointing gestures to specif
 
 \noindent\textbf{Robotic Platforms}: The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka} is consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tool-tip, where the pointing ray is modeled as the direction of this tool-tip.
 
+\textit{Note:} The real Baxter robot possesses a heads-up display that can be likened to a `head'. This has been removed in the simulations that were used in this study (for e.g. as shown in Figure~\ref{fig:natural}).
+
 \noindent\textbf{Workspace Setup}: Objects are placed in front of the manipulators. In certain trials a table is placed in front of the robot as well, and the objects rest in stable configurations on top of the table. A pick-and-place task is provided specified in terms of the positions of one of the objects. 
 
 \noindent\textbf{Objects}: The objects used in the study include small household items like mugs, saucers and boxes (cuboids), that are all placed in from on the robots.
 
 \noindent\textbf{Motion Generation}: The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving \textit{Inverse-Kinematics} for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library 
-% \cite{pracsys2014}.
+\cite{pracsys2014}.
 The motions were replayed on the model of the robot, and rendered in \textit{Blender}.
 
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.23\textwidth]{baxter.jpg}
-%     \includegraphics[width=0.23\textwidth]{kuka.jpg}
-%     \caption{The robots used in the study are the \textit{Rethink Baxter}(left) and the \textit{Kuka IIWA14}(right)(<references>)}
-%     \label{fig:robots}
-% \end{figure}
-
-% \begin{figure}[th!]
-%     \centering
-%     \includegraphics[width=0.5\textwidth]{pointing_diagram}
-%     \caption{(A) Workspace setup showing the pointing cone and the corresponding conic section on the table. (B) Shows the degrees-of-freedom considered for placement of the object on the table (C) Sampling policy to sample object poses within the conic section.}
-%     \label{fig:pointing}
-% \end{figure}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.48\textwidth]{spatial-referential.pdf}
-    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img11.png}
-    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img21.png}
-    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img12.png}
-    % \includegraphics[width=0.23\textwidth, trim={3in 4in 4in 4in},clip]{figures/img22.png}
     \caption{The image shows the differences between referential (\textit{top}) and spacial pointing to the location of object placement (\textit{bottom}), demonstrated on a robotic manipulator, \textit{Kuka IIWA14}. An overlay of the object is shown at the placement location where locating pointing needs to be directed.  Human subjects are more flexible with their interpretation of imprecise referential pointing than locating.}
     \label{fig:spatial}
 \end{figure}
@@ -91,8 +75,6 @@ We used our experiment setup to generate videos and images from the simulation f
 \paragraph{Referential vs Locating}
 In this condition, to reduce the chances of possible ambiguities, we place only one mug is on the table. The \textit{Baxter} robot points its right arm to the mug and then points to its final position, accompanied by a synchronized verbal cue, `\textit{Put that there.}'
 
-% The final image then presents the accurate final position of the mug. Here, we vary the initial position of the mug that is we sample 8 random points from the three cones explained in section yyy. 
-
 We keep the motion identical across all the trials in this method. 
 We introduce a variability in the initial position of the mug by sampling $8$ random positions within conic sections subtending $45^{\circ} , 67.5^{\circ}, $ and $90^{\circ}$, on the surface of the table. New videos are generated for each such position of the mug.
 This way we can measure how flexible subjects are to the variation of the initial location of the referent object. 
@@ -114,20 +96,16 @@ This trial is designed to be identical the Referential vs locating trials, excep
 In order to ensure that the results obtained in this study are not dependent on the choice of the robotic platform or its visual appearance, a second robot---a singly armed industrial \textit{Kuka} manipulator---is evaluated in the Referential vs Locating study (shown in Figure~\ref{fig:spatial}).
 
 \begin{figure}[t]
-    % \vspace{-0.1in}
     \centering
-    \includegraphics[width=0.3\textwidth]{figures/clutter_trial.png}
+    \includegraphics[width=0.4\textwidth]{figures/clutter_trial.png}
     \caption{A cluttered trial consists of collecting the response from a human subject when the position of the referential pointing action lies between two objects.}
-    % \vspace{-0.3in}
     \label{fig:cluttered_trial}
 \end{figure}
 
 \paragraph{Cluttered Scene}
-To study how the presence of other objects would change the behaviour of referential pointing, we examine the interpretation of the pointing actions when there is more than one \textit{cup} on the tables. Given the instructions to the subjects, both objects are candidate targets. This allows the investigation of the effect of a distractor object on the table.  
+To study how the presence of other objects would change the behaviour of referential pointing, we examine the interpretation of the pointing actions when there is more than one \textit{mug} on the tables. Given the instructions to the subjects, both objects are candidate targets. This experiment allows the investigation of the effect of a distractor object in the scene on referential pointing.  
 
-We start with a setup where there are two cups placed on the table (similar to the setup in Figure~\ref{fig:cluttered_trial}). One is a target cup placed at position $x_{object}$ and a distractor cup at position $x_{distractor}$. With the robot performing an initial pointing action to a position $x_{init}$ on the table. Both the objects are sampled around $x_{init}$ along the diametric line of the conic section arising from increasing cone angles of $45^\circ, 67.5^\circ, $ and $90^\circ$, where the separation of $x_{object}$, and $x_{distractor}$ is equal to the length of the diameter of the conic section, $D$. The objects are then positioned on the diametric line with a random offset between $[-\frac{D}{2}, \frac{D}{2}]$ around $x_{init}$ and along the line. This means that the objects are at various distances apart, and depending upon the offset, one of the objects is nearer to the pointing action. The setup induces that the nearer cup serves as the \textit{object}, and the farther one serves as the \textit{distractor}. The motions are performed on the \textit{Baxter's} right arm. The camera perspective in simulation is set to be facing into the pointing direction. The subjects in this trial are shown images of the instant of the referential pointing action.
-
-
+We start with a setup where there are two mugs placed on the table (similar to the setup in Figure~\ref{fig:cluttered_trial}). One is a target mug placed at position $x_{object}$ and a distractor mug at position $x_{distractor}$. With the robot performing an initial pointing action to a position $x_{init}$ on the table. Both the objects are sampled around $x_{init}$ along the diametric line of the conic section arising from increasing cone angles of $45^\circ, 67.5^\circ, $ and $90^\circ$, where the separation of $x_{object}$, and $x_{distractor}$ is equal to the length of the diameter of the conic section, $D$. The objects are then positioned on the diametric line with a random offset between $[-\frac{D}{2}, \frac{D}{2}]$ around $x_{init}$ and along the line. This means that the objects are at various distances apart, and depending upon the offset, one of the objects is nearer to the pointing action. The setup induces that the nearer mug serves as the \textit{object}, and the farther one serves as the \textit{distractor}. The motions are performed on the \textit{Baxter's} right arm. The camera perspective in simulation is set to be facing into the pointing direction. The subjects in this trial are shown images of the instant of the referential pointing action.
 
 
 \paragraph{Natural vs Unnatural scene}
@@ -135,16 +113,15 @@ In this condition we study how the contextual and physical understanding of the 
 
 The pointing action, as well as the objects of interest stay the identical between the natural, and unnatural trials. The difference lies in other objects in the scene that could defy gravity and float in the unnatural trials. The subjects were given a text-based instruction at the beginning of an unnatural trial saying they were seeing a scene where "gravity does not exist". 
 
-\begin{figure}[H]
-% \vspace{-0.3in}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.4\textwidth, trim={0 0 0 0.7in},clip ] {figures/topedgetable.png}
-    \vspace{-0.1in}
+    \includegraphics[width=0.45\textwidth, trim={0 0 0 0.7in},clip ] {figures/topedgetable.png}
+    % \vspace{-0.1in}
     \caption{
     The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
     }
     \label{fig:topedgetable}
-    \vspace{-0.1in}
+    % \vspace{-0.1in}
 \end{figure}
 
 \paragraph{Different verbs}  
