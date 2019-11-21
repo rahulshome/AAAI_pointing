@@ -8,23 +8,23 @@
     \includegraphics[width=0.325\textwidth ] {figures/baxter_Referential_.png}
     \includegraphics[width=0.325\textwidth ] {figures/baxter_Referential-Reverse_.png}
     \includegraphics[width=0.325\textwidth ]{figures/kuka_Referential_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/baxter_Spatial_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/baxter_Spatial-Reverse_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/kuka_Spatial_.png}
-    \caption{The aggregated results from the referential versus spatial trials for the \textit{Baxter} and \textit{Kuka} robots. The locations of the responses correspond to the center of the circles, and are plotted in the coordinate frame centered at the position of the pointing action, marked with $\times$. The circles show the fraction of correct (grey), incorrect(black) and ambiguous(white) responses.}
+    \includegraphics[width=0.325\textwidth ]{figures/baxter_Locating_.png}
+    \includegraphics[width=0.325\textwidth ]{figures/baxter_Locating-Reverse_.png}
+    \includegraphics[width=0.325\textwidth ]{figures/kuka_Locating_.png}
+    \caption{The aggregated results from the referential versus spatial trials for the \textit{Baxter} and \textit{Kuka} robots. The locations of the responses correspond to the center of the circles, and are plotted in the coordinate frame centered at the position of the pointing action, marked with $\times$. The circles show the fraction of correct (grey), incorrect (black) and ambiguous (white) responses.}
     \label{fig:aggregatesimple}
 \end{figure*}
 
 \paragraph{Referential vs Locating}
 We study how varying the target of the pointing action from a referent object to a part of the space changes the interpretation of the pointing action by comparing the interpretation of the position of the pointing action $x^*$ in each condition. 
 
-Figure~\ref{fig:aggregatesimple} shows the results of the experiment. The plot shows the spread of \textit{correct, incorrect, ambiguous} responses over the sampled positions about the location of a referential, and locating pointing action. The referential data demonstrates the robustness of the interpretation. Most of the responses were overwhelmingly \textit{`correct'}, for both robots in interpreting a referent object in the \textit{pick} part of a pick-and-place task. The locating pointing shows a much higher sensitivity to an accuracy of $x^*$ with respect to the true final placement. This comes up as a larger incidence of \textit{`incorrect'} and \textit{`ambiguous'} responses from the human subjects. This trend is true for the reverse trial as well.
+Figure~\ref{fig:aggregatesimple} shows the results of the experiment. The plot shows the spread of \textit{correct, incorrect, ambiguous} responses over the sampled positions about the location of referential vs locating pointing actions. The referential data demonstrates the robustness of the interpretation. Most of the responses were overwhelmingly \textit{correct}, for both robots, in interpreting a referent object in the \textit{pick} part of a pick-and-place task. The locating pointing shows a much higher sensitivity to an accuracy of $x^*$ with respect to the true final placement. This comes up as a larger incidence of \textit{incorrect} and \textit{ambiguous} responses from the human subjects. This trend is true for the reverse trial as well.
 
-While the study attempts to separate out and measure the critical aspects of the interpretation of robotic pointing actions some ambiguities like those arising out of perspective of the camera being projected onto a simulated 2D video or image are unavoidable. We suspect that the observed stretch of \textit{'correct'} responses in spatial trials is due to perspective.
+While the study attempts to separate out and measure the critical aspects of the interpretation of robotic pointing actions some ambiguities like those arising out of perspective of the camera being projected onto a simulated 2D video or image are unavoidable. We suspect that the observed stretch of \textit{correct} responses in spatial trials is due to perspective.
 
-To test our hypothesis, we performed a Chi-squared test and compared the proportion of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses in referential and spatial trials. The results of the test shows that these two classes are statistically significantly different ($\chi^2= 13.89, p = 0.00096$).
+To test our hypothesis that Referential pointing is interpreted less precisely than Locating pointing we performed a Chi-squared test and compared the proportion of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses in referential and spatial trials. The results of the test shows that these two classes are statistically significantly different ($\chi^2= 13.89, p = 0.00096$).
 
-To study if we are observing the same effects in the results of the reverse trial, no speech trial and the Kuka trial, we ran an equivalence test on the third hypothesis following the two one-sided tests method as described in \cite{lakens2017equivalence}, where each test is a pooled z-test with no continuity
+To study if we are observing the same effects in the results of the reverse trial, no speech trial and the Kuka trial, we ran an equivalence test following the two one-sided tests method as described in \cite{lakens2017equivalence}, where each test is a pooled $z$-test with no continuity
 correction with a significance level of 0.05. We found that changing the robot, removing the speech and changing the direction of the pointing action does not make a difference in the interpretation of locating pointing and referential pointing within any margin that is less than 5\%.
 
 
@@ -39,17 +39,17 @@ natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
           & edge          & 9           & 11        & 10        \\
           & table         & 7           & 13        & 12        \\ \hline
 \end{tabular}
-\caption{Results of the unnatural scene and natural scene. (numbers are our of 30) }
+\caption{Results of the unnatural scene and natural scene. (numbers are out of 30.)}
 \label{tab:natural-unnatural}
 \end{table}
 
 \paragraph{Natural vs Unnatural}
 
-As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}.
+As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}. To test if this difference is statistically significant, we use the Fisher exact test \cite{10.2307/2340521}. The test statistic value is $0.0478$. The result is significant at $p < 0.05$. 
 
 
 \paragraph{Different verbs}
-The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the p-values also suggest that the differences in judgements 
+The results of the Chi-squared test shows that in spatial trials when we replace \textit{put} with \textit{place}, \textit{push} and \textit{move}, the differences of the distributions of \textit{correct}, \textit{incorrect} and \textit{ambiguous} responses are not statistically significant ($\chi=0.2344 $, $p = 0.971$). The coefficients of the multinomial logistic regression model and the $p$-values also suggest that the differences in judgements 
 with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
 
 
@@ -60,13 +60,8 @@ with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
     \label{fig:cluttered}
 \end{figure}
 \paragraph{Cluttered}
-The data from these trials show how human subjects select between the two candidate target objects on the table. Since the instructions do not serve to disambiguate the target mug, the collected data how the observers determined what was deemed as the \textit{correct} target. 
-Each pie in Figure~\ref{fig:cluttered} shows the fraction of responses for every experimental trial that recorded the nearer (green) mug as correct, versus the farther mug (red). The white shaded fractions of the pies show the fraction of responses where subjects found the gesture ambiguous.
+The data from these trials show how human subjects select between the two candidate target objects on the table. Since the instructions do not serve to disambiguate the target mug, the collected data show what the observers deemed as the \textit{correct} target.  Figure~\ref{fig:cluttered} visualizes subjects' responses across trials.  The location of each pie uses the $x$-axis to show how much closer one candidate object is to the pointing target than the other, and uses the $y$-axis to show the overall imprecision of pointing.  Each pie in Figure~\ref{fig:cluttered} shows the fraction of responses across trials that recorded the nearer (green) mug as correct compared to the farther mug (red). The white shaded fractions of the pies show the fraction of responses where subjects found the gesture ambiguous.
 
-As we can see in Figure~\ref{fig:cluttered}, the more equidistant the cups from the center of pointing, i.e, lower the absolute difference of distances (less than 10 cm), the more {ambiguous} the choice was. 
-
-When one of the cups was significantly closer than the other one (more than 10cm on the X-axis) the subjects preferred the closer (green) mug.
-
-When the target is not very close to the distractor, and when the pointing finger points towards $x^*$ on the table that is closer to one mug, subjects picked the mug that was the nearer target of the pointing action more often than the incorrect one. This was true for all of the cases in our dataset. 
+As we can see in Figure~\ref{fig:cluttered}, once the two objects are roughly equidistant the cups from the center of pointing (within about 10cm), subjects tend to regard the pointing gesture as ambiguous, but as this distance increases, subjects are increasingly likely to prefer the closer target.  In all cases, wherever subjects have a preference for one object over the other, they subjects picked the mug that was the nearer target of the pointing action more often than the further one.
 
 
