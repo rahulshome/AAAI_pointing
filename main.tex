@@ -125,12 +125,12 @@ This work has two key contributions.  First, we create a systematic dataset, inv
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.45\textwidth, trim={0 0.3in 0 0in},clip]{putthatthere2.png}
+    \includegraphics[width=0.45\textwidth]{putthatthere2.png}
     \caption{A pick-and-place task requires a \textit{referential} pointing action to the object (orange cube) at the initial position, and a \textit{locating} pointing action to a final placement position (dotted cube). Such an action by a robot (in red) can also be accompanied by verbal cues like \textit{``Put that there.''}}
     \label{fig:pap}
 \end{figure}
 
-The second contribution is a set of interpretive principles, inspired by the literature on vague communication, that summarize our findings about robot pointing.  Our results suggest that pointing selects from a set of candidate interpretations determined by the type of information specified, the possibilities presented by the scene, and the options compatible with the current task.  In particular, we propose that pointing picks out all candidates that are not significantly further from the pointing ray than the closest alternatives.  Based on our empirical results, we present design principles that formalize the relevant notions of ``available alternatives'' and ``significantly further away'' and can be used in implementing future pointing robots.  The Analysis and Design Principles sections explains and justifies this approach and contextualizes it with previous research.
+The second contribution is a set of interpretive principles, inspired by the literature on vague communication, that summarize the findings about robot pointing.  They suggest that pointing selects from a set of candidate interpretations determined by the type of information specified, the possibilities presented by the scene, and the options compatible with the current task.  In particular, we propose that pointing picks out all candidates that are not significantly further from the pointing ray than the closest alternatives.  Based on our empirical results, we present design principles that formalize the relevant notions of ``available alternatives'' and ``significantly further away'', which can be used in future pointing robots.  The Analysis and Design Principles sections explain and justify this approach.
 
 
 \section{Related work}
@@ -138,7 +138,12 @@ The second contribution is a set of interpretive principles, inspired by the lit
 
 Enabling robots to understand and generate instructions to collaboratively carry out tasks with humans is an active area of research in natural language processing and human-robot interaction \cite{butepage2017human,cha2018survey}.  Within this area, a range of work has explored the role of pointing gestures in communication.
 
-Initial efforts in robotics have looked at making pointing gestures legible, adapting the process of motion planning so that robot movements are correctly understood as being directed toward the location of a particular object in space \cite{holladay2014legible,zhao2016experimental}.  The current work uses motions that are legible in this sense and goes on to explore how precise the targeting has to be to signal an intended interpretation.
+
+In modeling artificially intelligent agents, researchers have recognized the importance of effective communication, embracing all the communicative modalities agents can use to express information. In particular, perceiving physical actions \cite{thibadeau1986artificial} is often essential for socially-embedded behavior \cite{dautenhahn2002embodied}, as well as for understanding human demonstrations to infer solutions that can be emulated by robots \cite{kuniyoshi1994learning}. Animated agents have long provided resources for AI researchers to experiment with models of conversational interaction Cassell et al. (1994)\cite{cassell:siggraph1994}, while communication using hand gestures \cite{pavlovic1997visual} has long played a role in supporting intelligent human-computer interaction.
+As robotic hardware capabilities have increased, robots are increasingly seen as a viable platform \cite{scassellati2000investigating} for expressing and studying behavioral models. In the context of human-robot interactions, deictic or pointing gestures on robotics systems \cite{pook1996deictic}.  More recent work has developed richer abilities refer to refer objects by using pre-recorded human-guided motions \cite{sauppe2014robot}, or using mixed-reality multi-modal setups \cite{williams2019mixed}. The current work makes progress towards this fundamental AI challenge of effective embodied communication by proposing empirically determined generative rules for both referential and locating robotic pointing.
+
+
+Particular efforts in robotics have looked at making pointing gestures legible, adapting the process of motion planning so that robot movements are correctly understood as being directed toward the location of a particular object in space \cite{holladay2014legible,zhao2016experimental}.  The current work uses motions(gesture, including pointing gestures and demonstrations,) that are legible in this sense and goes on to explore how precise the targeting has to be to signal an intended interpretation.
 
 %%%%%%%%%%%
 % connections to AI and vision
@@ -200,7 +205,7 @@ We study effective ways to express intent for a pick-and-place task. In other wo
 \label{experiments}
 
 
-Our experiments share a common animation platform (our Experiment Setup) and a common Data Collection protocol.  Our experiments differ in presenting subjects with a range of Experimental Conditions.  All of the experiments described in this section together with the methods that we have chosen to analyze the data were based on a private but approved pre-registration on \textit{aspredicted.org}. The document is publicly available at \url{https://aspredicted.org/cg753.pdf}.
+Our experiments share a common animation platform, described in the Experimental Setup, and a common Data Collection protocol.  The experiments differ in presenting subjects with a range of experimental conditions, as described in the corresponding section.  All of the experiments described here together with the methods chosen to analyze the data were based on a private but approved pre-registration on \textit{aspredicted.org}. The document is publicly available at: \url{https://aspredicted.org/cg753.pdf}.
 
 
 % \footnote{Pre-registration on https://aspredicted.org/ on 08/25/2019. The document is publicly available at \url{https://aspredicted.org/cg753.pdf}.} 
@@ -209,7 +214,7 @@ Our experiments share a common animation platform (our Experiment Setup) and a c
 \subsection{Experiment Setup}
 Each animation shows a simulated robot producing two pointing gestures to specify a pick-and-place task.  Following the animation, viewers are asked whether a specific image represents a possible result of the specified task.\\
 
-\noindent\textbf{Robotic Platforms} The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka}  consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tool-tip, where the pointing ray is modeled as the direction of this tool-tip.
+\noindent\textbf{Robotic Platforms} The experiments were performed on two different robotic geometries, based on a \textit{Rethink Baxter}, and a \textit{Kuka IIWA14}.  The \textit{Baxter} is a dual-arm manipulator with two arms mounted on either side of a static torso. The experiments only move the right arm of the \textit{Baxter}. The \textit{Kuka}  consists of a single arm that is vertically mounted, i.e., points upward at the base. In the experiments the robots are shown with a singly fingered tool-tip, where the pointing ray is modeled as the direction of this tool-tip.\\
 
 \noindent\textit{Note} The real Baxter robot possesses a heads-up display that can be likened to a `head'. This has been removed in the simulations that were used in this study (as shown for example in Figure~\ref{fig:natural}).\\
 
@@ -217,9 +222,7 @@ Each animation shows a simulated robot producing two pointing gestures to specif
 
 \noindent\textbf{Objects}  The objects used in the study include small household items like mugs, saucers and boxes (cuboids), that are all placed in front of the robots.\\
 
-\noindent\textbf{Motion Generation}  The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving Inverse Kinematics for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library 
-\cite{pracsys2014}.
-The motions were replayed on the model of the robot, and rendered in \textit{Blender}.\\
+\noindent\textbf{Motion Generation}  The end-effector of the manipulator is instructed to move to pre-specified waypoints, designed for the possibility of effective communication, that typically lie between the base of the manipulator and the object itself. Such waypoints fully specify both the position and orientation of the end-effector to satisfy \textit{pointing actions}. The motions are performed by solving Inverse Kinematics for the end-effector geometry and moving the manipulator along these waypoints using a robotic motion planning library \cite{pracsys2014}. The motions were replayed on the model of the robot, and rendered in \textit{Blender}.\\
 
 
 \begin{figure}[t]
@@ -304,7 +307,7 @@ The pointing action, as well as the objects of interest, stay the identical betw
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.47\textwidth, trim={0 0 0 0.7in},clip ] {topedgetable.png}
+    \includegraphics[width=0.47\textwidth] {topedgetable.png}
     % \vspace{-0.1in}
     \caption{
     The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
@@ -323,7 +326,7 @@ To test if the effect is specific to the verb \textit{put}, we designed a contro
 \begin{figure*}[ht!]
 
     \centering
-    \includegraphics[width=0.5\textwidth, trim={0 0 0 3.3in},clip ] {labels.png}\\
+    \includegraphics[width=0.5\textwidth] {labels.png}\\
     \includegraphics[width=0.325\textwidth ] {baxter_Referential_.png}
     \includegraphics[width=0.325\textwidth ] {baxter_Referential-Reverse_.png}
     \includegraphics[width=0.325\textwidth ]{kuka_Referential_.png}
@@ -364,7 +367,7 @@ natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
 
 \paragraph{Natural vs Unnatural}
 
-As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}. To test if this difference is statistically significant, we use the Fisher exact test \cite{10.2307/2340521}. 
+As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}. To test if this difference is statistically significant, we use the Fisher exact test \cite{10.2307/2340manuelli2019kpam521}. 
 The test statistic value is $0.0478$. The result is significant at $p < 0.05$. 
 
 
@@ -401,26 +404,24 @@ and $3.650$ respectively. For Kuka, the average rating for samples from the $\an
 
 The results of the experiments suggest that locating pointing is interpreted rather precisely, where referential pointing is interpreted relatively flexibly.  This naturally aligns with the possibility for alternative interpretations.  For spatial reference, any location is a potential target.  By contrast, for referential pointing, it suffices to distinguish the target object from its distractors.
 
-We can characterize this interpretive process in formal terms by drawing on observations from the philosophical and computational literature on vagueness \cite{devault2004interpreting,graff2000shifting,kyburg2000fitting}.  Any pointing gesture starts from a set of candidate interpretations $D \subset \mathcal{W}$ determined by the context and the communicative goal.  In unconstrained situations, locating pointing allows a full set of candidates $D = \mathcal{W}.$  If factors like common-sense physics impose task constraints, that translates to restrictions on feasible targets $CS$, leading to a more restricted set of candidates $D = CS \cap \mathcal{W}$.  Finally, for referential pointing, the potential targets are located at locations $x_1 \ldots x_N \in S$, and $D = \{ x_1 \ldots x_N \}.$
+We can characterize this interpretive process in formal terms by drawing on observations from the philosophical and computational literature on vagueness \cite{devault2004interpreting,graff2000shifting,kyburg2000fitting}.  Any pointing gesture starts from a set of candidate interpretations $D \subset \mathcal{W}$ determined by the context and the communicative goal.  In unconstrained situations, locating pointing allows a full set of candidates $D = \mathcal{W}.$  If factors like common-sense physics impose task constraints, that translates to restrictions on feasible targets $CS$, leading to a more restricted set of candidates $D = CS \cap \mathcal{W}$.  Finally, for referential pointing, the potential targets are located at $x_1 \ldots x_N \in S$, and $D = \{ x_1 \ldots x_N \}.$
 
 Based on the communicative setting, we know that the pointing gesture, like any vague referring expression, must select at least one of the possible interpretations \cite{kyburg2000fitting}.  We can find the best interpretation by its distance to the target $x^*$ of the pointing gesture.  Using $d(x,x^*)$ to denote this distance, gives us a threshold $$\theta = \min_{x \in D} d(x, x^*).$$
 
-Vague descriptions can't be sensitive to fine distinctions \cite{graff2000shifting}.  So if a referent at $\theta$ is close enough to the pointing target, then another at $\theta + \epsilon$ must be close enough as well, for any value of $\epsilon$ that is not significant in the conversational context.  Our results suggest that viewers regard 10cm (in the scale of the model simulation) as an approximate threshold for a significant difference in our experiments.
+Vague descriptions can't be sensitive to fine distinctions \cite{graff2000shifting}.  So if a referent at $\theta$ is close enough to the pointing target, then another at $\theta + \epsilon$ must be close enough as well, for any value of $\epsilon$ that is not significant in the conversational context. Our results suggest that viewers regard 10cm (in the scale of the model simulation) as an approximate threshold for a significant difference in our experiments.
 
 In all, we predict that a pointing gesture is interpreted as referring to $\{x \in D | d(x,x^*) \leq \theta + \epsilon\}.$  We explain the different interpretations through the different choice of $D$.
 
-\paragraph{Locating Pointing}  For unconstrained locating pointing, $x^* \in D$, so $\theta=0$.  That means, the intended placement cannot differ significantly from the pointing target.  Taking into account common sense, we allow for small divergences that connect the pointing, for example, to the closest stable placement.
+\paragraph{Locating Pointing}  For unconstrained locating pointing, $x^* \in D$, so $\theta=0$.  That means, the intended placement cannot differ significantly from the pointing target.  Taking into account common sense, we allow for small divergence that connects the pointing, for example, to the closest stable placement.
 
 \paragraph{Referential Pointing}  For referential pointing, candidates play a much stronger role.  A pointing gesture always has the closest object to the pointing target as a possible referent.  However, ambiguities arise when the geometries of more than one object intersect with the $\theta+\epsilon$-neighborhood of $x^*$.   We can think of that, intuitively, in terms of the effects of $\theta$ and $\epsilon$.  Alternative referents give rise to ambiguity not only when they are too close to the target location ($\theta$) but even when they are simply not significantly further away from the target location ($\epsilon$).  
-
-
 
 \section{Conclusion and Future Work}
 \label{conclusion}
 
-We have presented an empirical study of the interpretation of simulated robots instructing pick-and-place tasks.  Our results show that robots can effectively combine pointing gestures and spoken instructions to communicate both object information and spatial information. We offer an empirical characterization---the first, to the best of the authors' knowledge---of the use of robot gestures to communicate precise spatial locations for placement purposes.  We have suggested that pointing, in line with other vague references, select from a set of candidate interpretations that depend on the task, context and communicative goal.  They pick those candidates that are not significantly further from the pointing ray than the best ones.  This contrasts with previous models that required pointing gestures to target a referent exactly or fall within a context-independent pointing cone.
+We have presented an empirical study of the interpretation of simulated robots instructing pick-and-place tasks.  Our results show that robots can effectively combine pointing gestures and spoken instructions to communicate both object and spatial information. We offer an empirical characterization---the first, to the best of the authors' knowledge---of the use of robot gestures to communicate precise spatial locations for placement purposes.  We have suggested that pointing, in line with other vague references, give rise to a set of candidate interpretations that depend on the task, context and communicative goal.  Users pick the interpretations that are not significantly further from the pointing ray than the best ones.  This contrasts with previous models that required pointing gestures to target a referent exactly or fall within a context-independent pointing cone.
 
-Our work has a number of limitations that suggest avenues for future work.   It remains to implement the design principles on robot hardware, explore the motion planning problems associated with generating imprecise but interpretable gestures, and verify the interpretations of physically co-present viewers.  Note that we used a 2D interface, which can introduce artifacts, for example from the effect of perspective.  In addition, robots can in general trade off pointing gestures with other descriptive material in offering instructions.  Future work is needed to assess how such trade-offs play out in location reference, not just in object reference.
+Our work has a number of limitations that suggest avenues for future work.   It remains to implement the design principles on robot hardware, explore the algorithmic process for generating imprecise but interpretable gestures, and verify the interpretations of physically co-present viewers.  Note that we used a 2D interface, which can introduce artifacts, for example from the effect of perspective.  In addition, robots can in general trade off pointing gestures with other descriptive material in offering instructions.  Future work is needed to assess how such trade-offs play out in location reference, not just in object reference.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %future work
@@ -429,7 +430,7 @@ Our work has a number of limitations that suggest avenues for future work.   It 
 
 More tight-knit collaborative scenarios need to be explored, including ones where multiple pick-and-place tasks can be composed to communicate more complex challenges and ones where they involve richer human environments.  Our study of  \textit{common sense} settings opens up intriguing avenues for such research, since it suggests ways to take into account background knowledge and expectations to narrow down the domain of possible problem specifications in composite tasks like \textit{``setting up a dining table.''} 
 
-While the current work studies the modalities of pointing and verbal cues, effects of including additional robotic communication in the form of heads-up displays or simulated eye-gaze would be other direction to explore. Such extensions would require lab experiments with human subjects and a real robot.  This is the natural next step of our work. 
+While the current work studies the modalities of pointing and verbal cues, effects of including additional robotic communication in the form of heads-up displays or simulated eye-gaze would be other directions to explore. Such extensions would require lab experiments with human subjects and a real robot.  This is the natural next step of our work. 
 
 % Real world trials are invaluable in evaluating the intensity of the effects observed in the current paper, and would prove instrumental in achieving our goal of truly effective human-robot communication and collaboration.
 
@@ -437,9 +438,7 @@ While the current work studies the modalities of pointing and verbal cues, effec
 
 
 \section{Acknowledgments}
-The research presented here is supported by NSF
-Award IIS-1526723.
-Thanks to the anonymous reviewers for helpful comments. We would also like to thank the Mechanical Turk participants for their contributions.
+The research presented here is supported by NSF Awards 1526723, 1734492, 1723869 and 1934924. Thanks to the anonymous reviewers for helpful comments. We would also like to thank the Mechanical Turk participants for their contributions.
 
 
 \bibliography{pointing.bib} 
