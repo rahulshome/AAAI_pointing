@@ -136,25 +136,11 @@ The second contribution is a set of interpretive principles, inspired by the lit
 \section{Related work}
 \label{related-work}
 
-Enabling robots to understand and generate instructions to collaboratively carry out tasks with humans is an active area of research in natural language processing and human-robot interaction \cite{butepage2017human,cha2018survey}.  Within this area, a range of work has explored the role of pointing gestures in communication.
+The current work focuses on the fundamental AI challenge of effective embodied communication by proposing empirically determined generative rules for robotic pointing that is both referential and location-oriented in nature. Prior research has recognized the importance of effective communication by embracing various modalities, which AI agents can use to express information. In particular, perceiving physical actions \cite{thibadeau1986artificial} is often essential for socially-embedded behavior \cite{dautenhahn2002embodied}, as well as for understanding human demonstrations to infer solutions that can be emulated by robots \cite{kuniyoshi1994learning}. Animated agents have long provided resources for AI researchers to experiment with models of conversational interaction \cite{cassell:siggraph1994}, while communication using hand gestures \cite{pavlovic1997visual} has played a role in supporting intelligent human-computer interaction. 
 
+Enabling robots to understand and generate instructions to collaboratively carry out tasks with humans is an active area of research in natural language processing and human-robot interaction \cite{butepage2017human,cha2018survey}. Since robotic hardware capabilities have increased, robots are increasingly seen as a viable platform for expressing and studying behavioral models \cite{scassellati2000investigating}.  In the context of human-robot interaction, deictic or pointing gestures have been used as a form of communication \cite{pook1996deictic}.  More recent work has developed richer abilities for referring to objects by using pre-recorded, human-guided motions \cite{sauppe2014robot}, or using mixed-reality, multi-modal setups \cite{williams2019mixed}. 
 
-In modeling artificially intelligent agents, researchers have recognized the importance of effective communication, embracing all the communicative modalities agents can use to express information. In particular, perceiving physical actions \cite{thibadeau1986artificial} is often essential for socially-embedded behavior \cite{dautenhahn2002embodied}, as well as for understanding human demonstrations to infer solutions that can be emulated by robots \cite{kuniyoshi1994learning}. Animated agents have long provided resources for AI researchers to experiment with models of conversational interaction Cassell et al. (1994)\cite{cassell:siggraph1994}, while communication using hand gestures \cite{pavlovic1997visual} has long played a role in supporting intelligent human-computer interaction.
-As robotic hardware capabilities have increased, robots are increasingly seen as a viable platform \cite{scassellati2000investigating} for expressing and studying behavioral models. In the context of human-robot interactions, deictic or pointing gestures on robotics systems \cite{pook1996deictic}.  More recent work has developed richer abilities refer to refer objects by using pre-recorded human-guided motions \cite{sauppe2014robot}, or using mixed-reality multi-modal setups \cite{williams2019mixed}. The current work makes progress towards this fundamental AI challenge of effective embodied communication by proposing empirically determined generative rules for both referential and locating robotic pointing.
-
-
-Particular efforts in robotics have looked at making pointing gestures legible, adapting the process of motion planning so that robot movements are correctly understood as being directed toward the location of a particular object in space \cite{holladay2014legible,zhao2016experimental}.  The current work uses motions(gesture, including pointing gestures and demonstrations,) that are legible in this sense and goes on to explore how precise the targeting has to be to signal an intended interpretation.
-
-%%%%%%%%%%%
-% connections to AI and vision
-%%%%%%%%%%%%
-% Recent works on motion reasoning argue the importance of accurate models for gesture recognition for determining the goals and intentions of a demonstration in human--robot interaction. CITE Deieter Fox
-% related problems have been studied in goal recognition CITE, goal-based imitation, and Bayesian Theory of Mind CITE. Although these works have studied the general principles of interpretable low-level motion trajectories, they fall short on studying more complicated actions such as pointing specifically to objects and locations.
-
-% Understanding the goals and intents of actions is 
-
-% Traditionally in robotic manipulation, tasks are specified using parameterized transformations over modeled templates of objects. Recently Manuelli et al. (2019) \cite{manuelli2019kpam} proposed a way to model the costs and constraints in robotic manipulation tasks via visual keypoints on objects which can be grounded relatively easily from language and are effective in capturing the variance in geometries within object categories for task specification. While some other work model the robot’s understanding of the task via a reward-based reinforcement learning \cite{gualtieri2018pick} or via imitation learning \cite{ghasemipour2019divergence}, it is unclear how such learned representations can be used for two-way communication. Thus there is a need for interpretable representations that can be effective for a two-way task communication between robots and humans.
-%%%%%%%%%%%%%%%%%%%%%
+Particular efforts in robotics have looked at making pointing gestures legible, adapting the process of motion planning so that robot movements are correctly understood as being directed toward the location of a particular object in space \cite{holladay2014legible,zhao2016experimental}.  The current work uses gestures, including pointing gestures and demonstrations that are legible in this sense. It goes on to explore how precise the targeting has to be to signal an intended interpretation.
 
 In natural language processing research, it's common to use an expanded pointing cone to describe the possible target objects for a pointing gesture, based on findings about human pointing \cite{kranstedt2003deixis,rieser2004pointing}. In cluttered scenes, the pointing cone typically includes a region with many candidate referents.  Understanding and generating object references in these situations involves combining pointing with natural language descriptions \cite{han2018placing,kollar2014grounding}.  While we also find that many pointing gestures are ambiguous and can benefit from linguistic supplementation, our results challenge the assumption of a uniform pointing cone. We argue for an alternative, context-sensitive model.
 
@@ -188,8 +174,6 @@ $$ \textit{PAP} = \langle o, \xinit, \xfinal \rangle. $$
 
 \noindent\textbf{Pointing Action}: Within its reachable workspace the end-effector of the manipulator can attain different orientations to fully specify a reachable \textit{pose} $p$, which describes its position and orientation.  The robots we study have a directional tooltip that viewers naturally see as projecting a ray $r$ along its axis outward into the scene.  In understanding pointing as communication, the key question is the relationship between the ray $r$ and the spatial values $\xinit$ and $\xfinal$ that define the pick-and-place task.
 
-% own on what it entails through our study.
-
 To make this concrete, we distinguish between the \emph{target} of pointing and the \emph{intent} of pointing. Given the ray $r$ coming out of the end-effector geometry, we define the target of the pointing as the intersection of this ray on the stable surface, $$x^*= r\cap S.$$ Meanwhile, the intent of pointing specifies one component of a pick-and-place task.  There are two cases:
 \begin{itemize}
     \item [-] \textit{Referential Pointing:} The pointing action is intended to identify a target object $o$ to be picked up. This object is the \textit{referent} of such an action. We can find $\xinit$, based on the present position of $o$.
@@ -206,10 +190,6 @@ We study effective ways to express intent for a pick-and-place task. In other wo
 
 
 Our experiments share a common animation platform, described in the Experimental Setup, and a common Data Collection protocol.  The experiments differ in presenting subjects with a range of experimental conditions, as described in the corresponding section.  All of the experiments described here together with the methods chosen to analyze the data were based on a private but approved pre-registration on \textit{aspredicted.org}. The document is publicly available at: \url{https://aspredicted.org/cg753.pdf}.
-
-
-% \footnote{Pre-registration on https://aspredicted.org/ on 08/25/2019. The document is publicly available at \url{https://aspredicted.org/cg753.pdf}.} 
-
 
 \subsection{Experiment Setup}
 Each animation shows a simulated robot producing two pointing gestures to specify a pick-and-place task.  Following the animation, viewers are asked whether a specific image represents a possible result of the specified task.\\
@@ -396,9 +376,6 @@ After designing and conducting our experiments, we became concerned that subject
 
 The examples were randomly sampled from the videos of the referential pointing trials that we showed to subjects for both the Baxter and Kuka robots. These examples were selected in a way that we obtained equal number of samples from each cone. The average rating for samples from the $\ang{45}$, $\ang{67.5}$ and $\ang{90}$ cone are $3.625, 3.521$
 and $3.650$ respectively. For Kuka, the average rating for samples from the $\ang{45}$, $\ang{67.5}$ and $\ang{90}$ cone are $3.450, 3.375$, and $3.400$. Overall, the average for Baxter is $3.600$, and for Kuka is $3.408$. The differences between Kuka and Baxter and the differences across cones are not statistically significant ($t \leq |1.07|, p > 0.1 $).  Thus we have no evidence that subjects regard imprecise pointing as problematic.
-% Malihe: exact numbers are:
-% $t \leq |1.07|, p \geq 0.88 $
-
 
 \section{Design Principles}
 
@@ -423,22 +400,12 @@ We have presented an empirical study of the interpretation of simulated robots i
 
 Our work has a number of limitations that suggest avenues for future work.   It remains to implement the design principles on robot hardware, explore the algorithmic process for generating imprecise but interpretable gestures, and verify the interpretations of physically co-present viewers.  Note that we used a 2D interface, which can introduce artifacts, for example from the effect of perspective.  In addition, robots can in general trade off pointing gestures with other descriptive material in offering instructions.  Future work is needed to assess how such trade-offs play out in location reference, not just in object reference.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%future work
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Previous work \cite{holladay2014legible,zhao2016experimental} has demonstrated the importance of pointing in trajectories executed by robots to refer to target objects. The current work provides a foundation to study the interpretation of different pointing actions and for designing trajectories for both referential and spatial targets. The design and evaluation of these trajectories is beyond the scope of the current work. Moreover, the addition of synchronized verbal cues is meant to draw the attention of the observer to specific states (referential and locating pointing) which must compose pick and place trajectories. Even though different types of trajectories are not evaluated, pick and place instants that compose such trajectories would be affected by the effects demonstrated in the paper.
-
 More tight-knit collaborative scenarios need to be explored, including ones where multiple pick-and-place tasks can be composed to communicate more complex challenges and ones where they involve richer human environments.  Our study of  \textit{common sense} settings opens up intriguing avenues for such research, since it suggests ways to take into account background knowledge and expectations to narrow down the domain of possible problem specifications in composite tasks like \textit{``setting up a dining table.''} 
 
 While the current work studies the modalities of pointing and verbal cues, effects of including additional robotic communication in the form of heads-up displays or simulated eye-gaze would be other directions to explore. Such extensions would require lab experiments with human subjects and a real robot.  This is the natural next step of our work. 
 
-% Real world trials are invaluable in evaluating the intensity of the effects observed in the current paper, and would prove instrumental in achieving our goal of truly effective human-robot communication and collaboration.
-
-% As an extension of the current results, lab experiments with human subjects and a real robots will be performed. Real world trials are invaluable in evaluating the intensity of the effects observed in the current paper, and would prove instrumental in achieving our goal of truly effective human-robot communication and collaboration.
-
-
 \section{Acknowledgments}
-The research presented here is supported by NSF Awards 1526723, 1734492, 1723869 and 1934924. Thanks to the anonymous reviewers for helpful comments. We would also like to thank the Mechanical Turk participants for their contributions.
+The research presented here is supported by NSF Awards IIS-1526723, IIS-1734492, IIS-1723869 and CCF-1934924. Thanks to the anonymous reviewers for helpful comments. We would also like to thank the Mechanical Turk participants for their contributions.
 
 
 \bibliography{pointing.bib} 
