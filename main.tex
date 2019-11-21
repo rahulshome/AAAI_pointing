@@ -1,5 +1,4 @@
 \def\year{2020}\relax
-%File: formatting-instruction.tex
 \documentclass[letterpaper]{article} % DO NOT CHANGE THIS
 \usepackage{aaai20}  % DO NOT CHANGE THIS
 \usepackage{times}  % DO NOT CHANGE THIS
@@ -104,16 +103,12 @@ firstname.lastname@rutgers.edu
 
   
 \begin{document}
-% \textsuperscript{\rm *}Equal Contribution\\
-% \newtheorem{hyp}{Hypothesis}
-% \DeclareMathOperator*{\argmax}{arg\,max}
-% \DeclareMathOperator*{\argmin}{arg\,min}\urlstyle{rm} % DO NOT CHANGE THIS
 
 \maketitle
 \begin{abstract}
 \begin{quote}
 
-Collaborative robotics requires effective communication between a robot and a human partner. This work proposes a set of interpretive principles for how a robotic arm can use pointing actions to communicate task information to people by extending existing models from the related literature. These principles are evaluated through studies where English-speaking human subjects view animations of simulated robots instructing pick-and-place tasks. The evaluation distinguishes two classes of pointing actions that arise in pick-and-place tasks: referential pointing (identifying objects) and locating pointing (identifying locations). The study indicates that human subjects show greater flexibility in interpreting the intent of referential pointing compared to locating pointing, which needs to be more deliberate. The results also demonstrate the effects of variation in the environment and task context on the interpretation of pointing. The corpus and the experiments described in this work can impact models of context and coordination as well as the effect of common sense reasoning in human-robot interactions.
+Collaborative robotics requires effective communication between a robot and a human partner. This work proposes a set of interpretive principles for how a robotic arm can use pointing actions to communicate task information to people by extending existing models from the related literature. These principles are evaluated through studies where English-speaking human subjects view animations of simulated robots instructing pick-and-place tasks. The evaluation distinguishes two classes of pointing actions that arise in pick-and-place tasks: referential pointing (identifying objects) and locating pointing (identifying locations). The study indicates that human subjects show greater flexibility in interpreting the intent of referential pointing compared to locating pointing, which needs to be more deliberate. The results also demonstrate the effects of variation in the environment and task context on the interpretation of pointing. Our corpus, experiments and design principles advance models of context, common sense reasoning and communication in embodied communication.
 
 \end{quote}
 \end{abstract}
@@ -125,13 +120,12 @@ Recent years have seen a rapid increase of robotic deployment, beyond traditiona
 
 When the robot's form permits, researchers can design such interactions using principles informed by research on embodied face-to-face human--human communication.  In particular, by realizing \emph{pointing gestures}, an articulated robotic arm with a directional end-effector can exploit a fundamental ingredient of human communication \cite{kita2003pointing}.  This has motivated roboticists to study simple pointing gestures that identify objects \cite{han2018placing,holladay2014legible,zhao2016experimental}.   This paper develops an empirically-grounded approach to robotic pointing that extends the range of physical settings, task contexts and communicative goals of robotic gestures. This is a step towards the richer and diverse interpretations that human pointing exhibits \cite{kendon:2004}.
 
-% Our study was pre-registered on \textit{aspredicted.com}.
 
 This work has two key contributions.  First, we create a systematic dataset, involving over 7000 human judgments, where crowd workers describe their interpretation of animations of simulated robots instructing pick-and-place tasks.  Planned comparisons allow us to compare pointing actions that identify objects (referential pointing) with those that identify locations (locating pointing). They also allow us to quantify the effect of accompanying speech, task constraints and scene complexity, as well as variation in the spatial content of the scene.  This new resource documents important differences in the way pointing is interpreted in different cases.  For example, referential pointing is typically robust to the exactness of the pointing gesture, whereas locating pointing is much more sensitive and requires more deliberate pointing to ensure a correct interpretation.  The Experiment Design section explains the overall process of data collection, the power analysis for the preregistered protocol, and the content presented to subjects across conditions. 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.45\textwidth, trim={0 0.3in 0 0in},clip]{figures/putthatthere2.png}
+    \includegraphics[width=0.45\textwidth, trim={0 0.3in 0 0in},clip]{putthatthere2.png}
     \caption{A pick-and-place task requires a \textit{referential} pointing action to the object (orange cube) at the initial position, and a \textit{locating} pointing action to a final placement position (dotted cube). Such an action by a robot (in red) can also be accompanied by verbal cues like \textit{``Put that there.''}}
     \label{fig:pap}
 \end{figure}
@@ -182,7 +176,7 @@ $$ \textit{PAP} = \langle o, \xinit, \xfinal \rangle. $$
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.5\textwidth]{pointing_diagram}
+\includegraphics[width=0.5\textwidth]{pointing_diagram.pdf}
 \caption{(A) Workspace setup showing the pointing cone and the corresponding conic section on the table. (B) The degrees-of-freedom considered for placement of the object on the table. (C) Sampling policy to sample object poses within the conic section.}
     \label{fig:pointing}
 \end{figure}
@@ -290,7 +284,7 @@ In order to ensure that the results obtained in this study are not dependent on 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.40\textwidth]{figures/clutter_trial.png}
+    \includegraphics[width=0.40\textwidth]{clutter_trial.png}
     \caption{A cluttered trial consists of collecting the response from a human subject when the position of the referential pointing action lies between two objects.}
     \label{fig:cluttered_trial}
 \end{figure}
@@ -310,7 +304,7 @@ The pointing action, as well as the objects of interest, stay the identical betw
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.47\textwidth, trim={0 0 0 0.7in},clip ] {figures/topedgetable.png}
+    \includegraphics[width=0.47\textwidth, trim={0 0 0 0.7in},clip ] {topedgetable.png}
     % \vspace{-0.1in}
     \caption{
     The diagram shows the three different configurations of the placement of a blue cuboid object evaluated in the \textit{Natural vs Unnatural} trials. 
@@ -329,13 +323,13 @@ To test if the effect is specific to the verb \textit{put}, we designed a contro
 \begin{figure*}[ht!]
 
     \centering
-    \includegraphics[width=0.5\textwidth, trim={0 0 0 3.3in},clip ] {figures/labels.png}\\
-    \includegraphics[width=0.325\textwidth ] {figures/baxter_Referential_.png}
-    \includegraphics[width=0.325\textwidth ] {figures/baxter_Referential-Reverse_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/kuka_Referential_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/baxter_Locating_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/baxter_Locating-Reverse_.png}
-    \includegraphics[width=0.325\textwidth ]{figures/kuka_Locating_.png}
+    \includegraphics[width=0.5\textwidth, trim={0 0 0 3.3in},clip ] {labels.png}\\
+    \includegraphics[width=0.325\textwidth ] {baxter_Referential_.png}
+    \includegraphics[width=0.325\textwidth ] {baxter_Referential-Reverse_.png}
+    \includegraphics[width=0.325\textwidth ]{kuka_Referential_.png}
+    \includegraphics[width=0.325\textwidth ]{baxter_Locating_.png}
+    \includegraphics[width=0.325\textwidth ]{baxter_Locating-Reverse_.png}
+    \includegraphics[width=0.325\textwidth ]{kuka_Locating_.png}
     \caption{The aggregated results from the referential versus spatial trials for the \textit{Baxter} and \textit{Kuka} robots. The locations of the responses correspond to the center of the circles, and are plotted in the coordinate frame centered at the position of the pointing action, marked with $\times$. The circles show the fraction of correct (grey), incorrect (black) and ambiguous (white) responses.}
     \label{fig:aggregatesimple}
 \end{figure*}
@@ -370,7 +364,9 @@ natural   & \textbf{top}  & \textbf{26} & 3         & 1         \\
 
 \paragraph{Natural vs Unnatural}
 
-As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}. To test if this difference is statistically significant, we use the Fisher exact test \cite{10.2307/2340521}. The test statistic value is $0.0478$. The result is significant at $p < 0.05$. 
+As shown in Table~\ref{tab:natural-unnatural} we observed in the natural scene, when the end-effector points towards the edge of the cube that is on top of the stack, subjects place the new cube on top of the stack or on the table instead of the edge of the cube. However, in the unnatural scene, when we explain to subjects that there is no gravity, a majority agree with the final image that has the cube on the \textit{edge}. To test if this difference is statistically significant, we use the Fisher exact test %\cite{10.2307/2340521}
+. 
+The test statistic value is $0.0478$. The result is significant at $p < 0.05$. 
 
 
 \paragraph{Different verbs}
@@ -380,7 +376,7 @@ with different verbs are not statically significant ($b<0.0001$ , $p>0.98$).
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\linewidth]{figures/baxter_Clutter_granular.png}
+    \includegraphics[width=\linewidth]{baxter_Clutter_granular.png}
     \caption{The scatter plot represents the spread of responses where human subjects chose the \textit{nearer cup} (green), \textit{farther} cup (red), and ambiguous (white). The \textit{x-axis} represents the absolute difference between the distances of each cup to the locations of pointing, the \textit{y-axis} represents the total distance between the two cups.}
     \label{fig:cluttered}
 \end{figure}
